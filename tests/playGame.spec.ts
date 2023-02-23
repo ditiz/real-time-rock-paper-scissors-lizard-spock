@@ -64,4 +64,18 @@ test.describe(() => {
     expect(page.getByText("You lose...")).toBeTruthy()
     expect(page1.getByText("You win !")).toBeTruthy()
   })
+
+  test("rock against rock should tie", async ({ browser }) => {
+    const page = await browser.newPage()
+    const page1 = await browser.newPage()
+
+    await page.goto(projectUrl)
+    await page1.goto(projectUrl)
+
+    await page.getByRole("img", { name: "rock icons" }).click()
+    await page1.getByRole("img", { name: "rock icons" }).click()
+
+    expect(page.getByText("It's a tie")).toBeTruthy()
+    expect(page1.getByText("You lose...")).toBeTruthy()
+  })
 })
