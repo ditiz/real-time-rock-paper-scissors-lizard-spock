@@ -50,4 +50,18 @@ test.describe(() => {
     expect(page.getByText("You win !")).toBeTruthy()
     expect(page1.getByText("You lose...")).toBeTruthy()
   })
+
+  test("paper should lose against scissors", async ({ browser }) => {
+    const page = await browser.newPage()
+    const page1 = await browser.newPage()
+
+    await page.goto(projectUrl)
+    await page1.goto(projectUrl)
+
+    await page.getByRole("img", { name: "paper icons" }).click()
+    await page1.getByRole("img", { name: "scissors icons" }).click()
+
+    expect(page.getByText("You lose...")).toBeTruthy()
+    expect(page1.getByText("You win !")).toBeTruthy()
+  })
 })
