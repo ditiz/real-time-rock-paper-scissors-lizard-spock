@@ -29,9 +29,25 @@ test("game icons when 2 player are connected", async ({ browser }) => {
   await page.goto(projectUrl)
   await page1.goto(projectUrl)
 
-  expect(page1.getByRole("img", { name: "rock icons" })).toBeTruthy()
-  expect(page1.getByRole("img", { name: "paper icons" })).toBeTruthy()
-  expect(page1.getByRole("img", { name: "scissors icons" })).toBeTruthy()
-  expect(page1.getByRole("img", { name: "lizard icons" })).toBeTruthy()
-  expect(page1.getByRole("img", { name: "spock icons" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "rock icons" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "paper icons" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "scissors icons" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "lizard icons" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "spock icons" })).toBeTruthy()
+})
+
+test.describe(() => {
+  test("rock should won against scissors", async ({ browser }) => {
+    const page = await browser.newPage()
+    const page1 = await browser.newPage()
+
+    await page.goto(projectUrl)
+    await page1.goto(projectUrl)
+
+    await page.getByRole("img", { name: "rock icons" }).click()
+    await page1.getByRole("img", { name: "scissors icons" }).click()
+
+    expect(page.getByText("You win !")).toBeTruthy()
+    expect(page1.getByText("You lose...")).toBeTruthy()
+  })
 })
