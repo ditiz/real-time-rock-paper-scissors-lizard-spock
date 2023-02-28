@@ -21,3 +21,17 @@ test("waiting message", async ({ page }) => {
   await page.goto(projectUrl)
   expect(page.getByText("Waiting for another player")).toBeTruthy()
 })
+
+test("game icons when 2 player are connected", async ({ browser }) => {
+  const page = await browser.newPage()
+  const page1 = await browser.newPage()
+
+  await page.goto(projectUrl)
+  await page1.goto(projectUrl)
+
+  expect(page1.getByRole("img", { name: "rock icons" })).toBeTruthy()
+  expect(page1.getByRole("img", { name: "paper icons" })).toBeTruthy()
+  expect(page1.getByRole("img", { name: "scissors icons" })).toBeTruthy()
+  expect(page1.getByRole("img", { name: "lizard icons" })).toBeTruthy()
+  expect(page1.getByRole("img", { name: "spock icons" })).toBeTruthy()
+})
