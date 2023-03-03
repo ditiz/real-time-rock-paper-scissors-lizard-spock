@@ -1,0 +1,8 @@
+.game {
+  display: flex;
+  gap: 1rem;
+}
+
+.game * {
+  border-radius: 50%;
+}

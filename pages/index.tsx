@@ -10,30 +10,31 @@ export default function Home() {
   const [io, setIo] = useState<Socket>();
 
   useEffect(() => {
-    const url = window.location.host;
+    if (!io) {
+      const url = window.location.host;
+      const io = SocketIOClient(url, {
+        path: "/api/socket/init",
+      });
 
-    // connect to socket server
-    const io = SocketIOClient(url, {
-      path: "/api/socket/init",
-    });
+      setIo(io as unknown as Socket);
 
-    setIo(io as unknown as Socket);
+      // log socket connection
+      io.on("connect", () => {
+        setConnected(true);
+      });
 
-    // log socket connection
-    io.on("connect", () => {
-      console.log("Socket connected!", io.id);
-      setConnected(true);
-    });
+      // Update the number of user when evetn "new-user" is emited
+      io.on("new-user", (option) => {
+        setNbUser(option.connectionCount);
+      });
 
-    io.on("new-user", (option) => {
-      console.log("new-user", option);
-      setNbUser(option.connectionCount);
-    });
+      setTimeout(() => io.emit("test"), 1000);
 
-    return () => {
-      setIo(undefined);
-      io.close();
-    };
+      return () => {
+        setIo(undefined);
+        io.close();
+      };
+    }
   }, []);
 
   return (
@@ -105,9 +106,15 @@ function Game({ socket }: GameProps) {
   };
 
   useEffect(() => {
-    console.log(socket);
+    if (socket) {
+      socket.on("rcv-action", (args) => {
+        console.log(args);
+      });
+    }
+  }, [socket]);
+
+  useEffect(() => {
     if (socket && choice) {
-      console.log(choice);
       socket.emit("user-action", { choice });
     }
   }, [choice, socket]);
@@ -116,7 +123,13 @@ function Game({ socket }: GameProps) {
     <article className="game">
       {choices.map((el) => (
         <section key={el.name} onClick={() => handleClick(el.value)}>
-          <Image src={el.path} width={50} height={50} alt={el.alt} />
+          <Image
+            src={el.path}
+            width={50}
+            height={50}
+            alt={el.alt}
+            style={{ border: choice === el.value ? "3px solid red" : "none" }}
+          />
         </section>
       ))}
     </article>

@@ -22,7 +22,7 @@ export default async function handler(
   res: NextApiResponseServerIO
 ) {
   if (!res.socket.server.io) {
-    console.log("New Socket.io server...");
+    console.info("New Socket.io server...");
     // adapt Next's net Server to http Server
     const httpServer: NetServer = res.socket.server;
     const io = new ServerIO(httpServer, {
@@ -35,10 +35,11 @@ export default async function handler(
         connectionCount: (io.engine as unknown as Record<string, unknown>)
           .clientsCount,
       });
-    });
 
-    io.on("user-action", (socket, args) => {
-      console.log("user-action", socket, args);
+      socket.on("user-action", (args) => {
+        console.info("user-action", args.choice);
+        socket.emit("rcv-action", args.choice);
+      });
     });
 
     // append SocketIO server to Next.js socket server response
