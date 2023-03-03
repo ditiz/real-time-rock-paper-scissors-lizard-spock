@@ -27,10 +27,14 @@ export default async function handler(
     const httpServer: NetServer = res.socket.server;
     const io = new ServerIO(httpServer, {
       path: "/api/socket/init",
+      cors: {
+        origin: "*",
+        methods: ["GET", "POST"],
+      },
     });
 
     io.on("connection", (socket) => {
-      socket.emit("new-user", {
+      io.emit("new-user", {
         latestConnection: socket.id,
         connectionCount: (io.engine as unknown as Record<string, unknown>)
           .clientsCount,
@@ -38,7 +42,11 @@ export default async function handler(
 
       socket.on("user-action", (args) => {
         console.info("user-action", args.choice);
-        socket.emit("rcv-action", args.choice);
+        io.emit("rcv-action", args.choice, socket.id);
+      });
+
+      socket.on("disconnect", () => {
+        console.log("a user disconnected");
       });
     });
 

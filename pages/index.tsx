@@ -53,7 +53,7 @@ export default function Home() {
   );
 }
 
-export enum Choice {
+export enum Option {
   rock = "rock",
   paper = "paper",
   scissors = "scissors",
@@ -65,50 +65,89 @@ interface GameProps {
   socket: Socket<DefaultEventsMap, DefaultEventsMap>;
 }
 
-const choices = [
+const options = [
   {
     name: "rock",
     path: "icons/rock.svg",
     alt: "rock icons",
-    value: Choice.rock,
+    value: Option.rock,
   },
   {
     name: "paper",
     path: "icons/paper.svg",
     alt: "paper icons",
-    value: Choice.paper,
+    value: Option.paper,
   },
   {
     name: "scissors",
     path: "icons/scissors.svg",
     alt: "scissors icons",
-    value: Choice.scissors,
+    value: Option.scissors,
   },
   {
     name: "lizard",
     path: "icons/lizard.svg",
     alt: "lizard icons",
-    value: Choice.lizard,
+    value: Option.lizard,
   },
   {
     name: "spock",
     path: "icons/spock.svg",
     alt: "spock icons",
-    value: Choice.spock,
+    value: Option.spock,
   },
 ];
 
-function Game({ socket }: GameProps) {
-  const [choice, setChoice] = useState<Choice>();
+// Object that define against what an option win
+const actions = {
+  [Option.rock]: [Option.scissors, Option.lizard],
+  [Option.paper]: [Option.rock, Option.spock],
+  [Option.scissors]: [Option.paper, Option.lizard],
+  [Option.lizard]: [Option.paper, Option.spock],
+  [Option.spock]: [Option.rock, Option.scissors],
+};
 
-  const handleClick = (pick: Choice) => {
+export enum GameResult {
+  tie = "tie",
+  win = "win",
+  lose = "lose",
+}
+/**
+ * Say who win the game
+ * @param choice
+ * @param opponentChoice
+ * @returns 0 for tie, 1 for win, -1 for lose
+ */
+function playGame(choice: Option, opponentChoice: Option): GameResult {
+  // Check tie
+  if (choice === opponentChoice) {
+    return GameResult.tie;
+  }
+
+  // Check if win
+  if (actions[choice].includes(opponentChoice)) {
+    return GameResult.win;
+  }
+
+  // If no tie or win, it's lose
+  return GameResult.lose;
+}
+
+function Game({ socket }: GameProps) {
+  const [choice, setChoice] = useState<Option>();
+  const [opponentChoice, setOppentChoice] = useState<Option>();
+  const [gameResult, setGameResult] = useState<GameResult>();
+
+  const handleClick = (pick: Option) => {
     setChoice(pick);
   };
 
   useEffect(() => {
     if (socket) {
-      socket.on("rcv-action", (args) => {
-        console.log(args);
+      socket.on("rcv-action", (option, socketId) => {
+        if (socket.id !== socketId) {
+          setOppentChoice(Option[option as Option]);
+        }
       });
     }
   }, [socket]);
@@ -119,19 +158,40 @@ function Game({ socket }: GameProps) {
     }
   }, [choice, socket]);
 
+  useEffect(() => {
+    if (choice && opponentChoice) {
+      setGameResult(playGame(choice, opponentChoice));
+
+      // Reset choices
+      setChoice(undefined);
+      setOppentChoice(undefined);
+    }
+  }, [choice, opponentChoice]);
+
   return (
-    <article className="game">
-      {choices.map((el) => (
-        <section key={el.name} onClick={() => handleClick(el.value)}>
-          <Image
-            src={el.path}
-            width={50}
-            height={50}
-            alt={el.alt}
-            style={{ border: choice === el.value ? "3px solid red" : "none" }}
-          />
-        </section>
-      ))}
-    </article>
+    <>
+      <article className="game">
+        {options.map((el) => (
+          <section key={el.name} onClick={() => handleClick(el.value)}>
+            <Image
+              src={el.path}
+              width={50}
+              height={50}
+              alt={el.alt}
+              style={{ border: choice === el.value ? "3px solid red" : "none" }}
+            />
+          </section>
+        ))}
+      </article>
+      <article className="game__result">
+        {gameResult === GameResult.tie ? (
+          <section>It&apos;s a tie</section>
+        ) : null}
+
+        {gameResult === GameResult.win ? <section>You win !</section> : null}
+
+        {gameResult === GameResult.lose ? <section>You lose...</section> : null}
+      </article>
+    </>
   );
 }
