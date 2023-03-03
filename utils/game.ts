@@ -1,7 +1,6 @@
-import { GameResult, Option } from "@/types/game";
+import { GameResult, ImageOption, Option } from "@/types/game";
 
-
-export const options = [
+export const imageOptions: ImageOption[] = [
   {
     name: "rock",
     path: "icons/rock.svg",
@@ -42,7 +41,6 @@ const actions = {
   [Option.lizard]: [Option.paper, Option.spock],
   [Option.spock]: [Option.rock, Option.scissors],
 };
-
 
 /**
  * Say who win the game

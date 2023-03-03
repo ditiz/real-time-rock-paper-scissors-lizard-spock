@@ -6,48 +6,54 @@ import SocketIOClient from "socket.io-client";
 export default function Home() {
   const [connected, setConnected] = useState<boolean>(false);
   const [nbUser, setNbUser] = useState<number>(0);
-  const [io, setIo] = useState<Socket>();
+  const [socket, setSocket] = useState<Socket>();
 
   useEffect(() => {
-    if (!io) {
-      const url = window.location.host;
-      const io = SocketIOClient(url, {
-        path: "/api/socket/init",
-      });
+    const url = window.location.host;
+    const clientSocket = SocketIOClient(url, {
+      path: "/api/socket/init",
+    });
 
-      setIo(io as unknown as Socket);
+    setSocket(clientSocket as unknown as Socket);
 
-      // log socket connection
-      io.on("connect", () => {
-        setConnected(true);
-      });
+    // log socket connection
+    clientSocket.on("connect", () => {
+      setConnected(true);
+    });
 
-      // Update the number of user when evetn "new-user" is emited
-      io.on("new-user", (option) => {
-        setNbUser(option.connectionCount);
-      });
+    // Update the number of user when evetn "new-user" is emited
+    clientSocket.on("new-user", (option) => {
+      setNbUser(option.connectionCount);
+    });
 
-      setTimeout(() => io.emit("test"), 1000);
+    setTimeout(() => clientSocket.emit("test"), 1000);
 
-      return () => {
-        setIo(undefined);
-        io.close();
-      };
-    }
+    return () => {
+      setSocket(undefined);
+      clientSocket.close();
+    };
   }, []);
 
-  return (
-    <main>
-      <section>{connected ? "connected" : "not connected"}</section>
-      <section>number of users {nbUser}</section>
+  if (!connected) {
+    return <>Loading</>;
+  }
 
-      <section>
-        {io && nbUser < 2 ? (
-          "Waiting for another player"
-        ) : (
-          <Game socket={io as Socket} />
-        )}
-      </section>
-    </main>
+  return (
+    <>
+      <header>
+        <h1>Rock Paper Scissors Lizard Spock</h1>
+      </header>
+      <main>
+        <section>
+          {socket && nbUser < 2 ? (
+            <article className="game__waiting-message">
+              Waiting for another player
+            </article>
+          ) : (
+            <Game socket={socket as Socket} />
+          )}
+        </section>
+      </main>
+    </>
   );
 }

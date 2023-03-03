@@ -1,8 +1,17 @@
 .game {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 
 .game * {
   border-radius: 50%;
+}
+
+.game__title,
+.game__result,
+.game__waiting-message {
+  display: grid;
+  place-items: center;
+  margin: 1rem 0;
 }

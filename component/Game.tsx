@@ -1,10 +1,10 @@
-
 import { GameResult, Option } from "@/types/game";
-import {  options, playGame } from "@/utils/game";
-import Image from "next/image";
+import { imageOptions, playGame } from "@/utils/game";
 import { useEffect, useState } from "react";
 import { Socket } from "socket.io";
 import { DefaultEventsMap } from "socket.io/dist/typed-events";
+import DisplayGameResult from "./DisplayGameResult";
+import { GameOption } from "./GameOption";
 
 interface GameProps {
   socket: Socket<DefaultEventsMap, DefaultEventsMap>;
@@ -14,10 +14,6 @@ function Game({ socket }: GameProps) {
   const [choice, setChoice] = useState<Option>();
   const [opponentChoice, setOppentChoice] = useState<Option>();
   const [gameResult, setGameResult] = useState<GameResult>();
-
-  const handleClick = (pick: Option) => {
-    setChoice(pick);
-  };
 
   useEffect(() => {
     if (socket) {
@@ -47,28 +43,18 @@ function Game({ socket }: GameProps) {
 
   return (
     <>
+      <h2 className="game__title">Choose your move</h2>
       <article className="game">
-        {options.map((el) => (
-          <section key={el.name} onClick={() => handleClick(el.value)}>
-            <Image
-              src={el.path}
-              width={50}
-              height={50}
-              alt={el.alt}
-              style={{ border: choice === el.value ? "3px solid red" : "none" }}
-            />
-          </section>
+        {imageOptions.map((el) => (
+          <GameOption
+            key={el.name}
+            option={el}
+            choice={choice}
+            setChoice={setChoice}
+          />
         ))}
       </article>
-      <article className="game__result">
-        {gameResult === GameResult.tie ? (
-          <section>It&apos;s a tie</section>
-        ) : null}
-
-        {gameResult === GameResult.win ? <section>You win !</section> : null}
-
-        {gameResult === GameResult.lose ? <section>You lose...</section> : null}
-      </article>
+      <DisplayGameResult result={gameResult} />
     </>
   );
 }

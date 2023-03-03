@@ -11,3 +11,10 @@ export enum GameResult {
   win = "win",
   lose = "lose",
 }
+
+export interface ImageOption {
+  name: string;
+  path: string;
+  alt: string;
+  value: Option;
+}
