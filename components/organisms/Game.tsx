@@ -3,7 +3,8 @@ import { imageOptions, playGame } from "@/utils/game";
 import { useEffect, useState } from "react";
 import { Socket } from "socket.io";
 import { DefaultEventsMap } from "socket.io/dist/typed-events";
-import DisplayGameResult from "./DisplayGameResult";
+import { GameTitle } from "../atoms";
+import DisplayGameResult from "../molecules/DisplayGameResult";
 import { GameOption } from "./GameOption";
 
 interface GameProps {
@@ -43,7 +44,7 @@ function Game({ socket }: GameProps) {
 
   return (
     <>
-      <h2 className="game__title">Choose your move</h2>
+      <GameTitle>Choose your move</GameTitle>
       <article className="game">
         {imageOptions.map((el) => (
           <GameOption
