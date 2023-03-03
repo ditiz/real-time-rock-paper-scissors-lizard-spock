@@ -25,8 +25,6 @@ The client uses WebSockets to communicate with the server and to receive updates
 
 ## Getting Started
 
-
-
 First, run the development server:
 
 ```bash
@@ -54,3 +52,14 @@ Then you can run this build using:
 ```bash
 npm run start
 ```
+
+## Generate
+
+This projet use the atomic design architecture.
+You can generate the different type of component using [plop](https://github.com/plopjs/plop).
+
+For that, simply run: 
+```bash
+npm run generate
+```
+
