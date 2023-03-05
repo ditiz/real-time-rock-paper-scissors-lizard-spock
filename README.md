@@ -40,14 +40,16 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
- 
-## Build 
-To build the project, run: 
+
+## Build
+
+To build the project, run:
+
 ```bash
 npm run build
 ```
 
-Then you can run this build using: 
+Then you can run this build using:
 
 ```bash
 npm run start
@@ -58,8 +60,8 @@ npm run start
 This projet use the atomic design architecture.
 You can generate the different type of component using [plop](https://github.com/plopjs/plop).
 
-For that, simply run: 
+For that, simply run:
+
 ```bash
 npm run generate
 ```
-
