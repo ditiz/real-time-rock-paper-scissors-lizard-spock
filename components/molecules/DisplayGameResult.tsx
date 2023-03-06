@@ -1,13 +1,13 @@
-import { GameResult } from "@/types/game";
+import { GameResult } from "@/types/game"
 
 interface GameResultProps {
-  result: GameResult | undefined;
+  result: GameResult | undefined
 }
 
 const DisplayGameResult: React.FC<GameResultProps> = ({ result: result }) => {
   // If no result, we display nothing
   if (!result) {
-    return <></>;
+    return <></>
   }
 
   return (
@@ -18,7 +18,7 @@ const DisplayGameResult: React.FC<GameResultProps> = ({ result: result }) => {
 
       {result === GameResult.lose ? <section>You lose...</section> : null}
     </article>
-  );
-};
+  )
+}
 
-export default DisplayGameResult;
+export default DisplayGameResult

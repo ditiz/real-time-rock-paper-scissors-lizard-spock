@@ -1,5 +1,5 @@
-const generateAtom = require("./tools/generators/atom");
+const generateAtom = require("./tools/generators/atom")
 
 module.exports = function (plop) {
-  plop.setGenerator("atom", generateAtom);
-};
+  plop.setGenerator("atom", generateAtom)
+}

@@ -13,8 +13,8 @@ export enum GameResult {
 }
 
 export interface ImageOption {
-  name: string;
-  path: string;
-  alt: string;
-  value: Option;
+  name: string
+  path: string
+  alt: string
+  value: Option
 }

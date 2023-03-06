@@ -1,7 +1,7 @@
 interface GameOptionsAtomProps {}
 
 const GameOptionsAtom: React.FC<GameOptionsAtomProps> = () => {
-  return <></>;
-};
+  return <></>
+}
 
-export default GameOptionsAtomProps;
+export default GameOptionsAtomProps

@@ -1,46 +1,46 @@
-import { GameResult, Option } from "@/types/game";
-import { imageOptions, playGame } from "@/utils/game";
-import { useEffect, useState } from "react";
-import { Socket } from "socket.io";
-import { DefaultEventsMap } from "socket.io/dist/typed-events";
-import { GameTitle } from "../atoms";
-import DisplayGameResult from "../molecules/DisplayGameResult";
-import { GameOption } from "./GameOption";
+import { GameResult, Option } from "@/types/game"
+import { imageOptions, playGame } from "@/utils/game"
+import { useEffect, useState } from "react"
+import { Socket } from "socket.io"
+import { DefaultEventsMap } from "socket.io/dist/typed-events"
+import { GameTitle } from "../atoms"
+import DisplayGameResult from "../molecules/DisplayGameResult"
+import { GameOption } from "./GameOption"
 
 interface GameProps {
-  socket: Socket<DefaultEventsMap, DefaultEventsMap>;
+  socket: Socket<DefaultEventsMap, DefaultEventsMap>
 }
 
 function Game({ socket }: GameProps) {
-  const [choice, setChoice] = useState<Option>();
-  const [opponentChoice, setOppentChoice] = useState<Option>();
-  const [gameResult, setGameResult] = useState<GameResult>();
+  const [choice, setChoice] = useState<Option>()
+  const [opponentChoice, setOppentChoice] = useState<Option>()
+  const [gameResult, setGameResult] = useState<GameResult>()
 
   useEffect(() => {
     if (socket) {
       socket.on("rcv-action", (option, socketId) => {
         if (socket.id !== socketId) {
-          setOppentChoice(Option[option as Option]);
+          setOppentChoice(Option[option as Option])
         }
-      });
+      })
     }
-  }, [socket]);
+  }, [socket])
 
   useEffect(() => {
     if (socket && choice) {
-      socket.emit("user-action", { choice });
+      socket.emit("user-action", { choice })
     }
-  }, [choice, socket]);
+  }, [choice, socket])
 
   useEffect(() => {
     if (choice && opponentChoice) {
-      setGameResult(playGame(choice, opponentChoice));
+      setGameResult(playGame(choice, opponentChoice))
 
       // Reset choices
-      setChoice(undefined);
-      setOppentChoice(undefined);
+      setChoice(undefined)
+      setOppentChoice(undefined)
     }
-  }, [choice, opponentChoice]);
+  }, [choice, opponentChoice])
 
   return (
     <>
@@ -57,7 +57,7 @@ function Game({ socket }: GameProps) {
       </article>
       <DisplayGameResult result={gameResult} />
     </>
-  );
+  )
 }
 
-export default Game;
+export default Game

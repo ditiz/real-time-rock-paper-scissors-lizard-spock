@@ -1,4 +1,4 @@
-import { GameResult, ImageOption, Option } from "@/types/game";
+import { GameResult, ImageOption, Option } from "@/types/game"
 
 export const imageOptions: ImageOption[] = [
   {
@@ -31,7 +31,7 @@ export const imageOptions: ImageOption[] = [
     alt: "spock icons",
     value: Option.spock,
   },
-];
+]
 
 // Object that define against what an option win
 const actions = {
@@ -40,7 +40,7 @@ const actions = {
   [Option.scissors]: [Option.paper, Option.lizard],
   [Option.lizard]: [Option.paper, Option.spock],
   [Option.spock]: [Option.rock, Option.scissors],
-};
+}
 
 /**
  * Say who win the game
@@ -51,14 +51,14 @@ const actions = {
 export function playGame(choice: Option, opponentChoice: Option): GameResult {
   // Check tie
   if (choice === opponentChoice) {
-    return GameResult.tie;
+    return GameResult.tie
   }
 
   // Check if win
   if (actions[choice].includes(opponentChoice)) {
-    return GameResult.win;
+    return GameResult.win
   }
 
   // If no tie or win, it's lose
-  return GameResult.lose;
+  return GameResult.lose
 }

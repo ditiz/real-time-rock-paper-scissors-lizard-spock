@@ -1,41 +1,41 @@
-import Game from "@/component/Game";
-import { useEffect, useState } from "react";
-import { Socket } from "socket.io";
-import SocketIOClient from "socket.io-client";
+import Game from "@/components/organisms/Game"
+import { useEffect, useState } from "react"
+import { Socket } from "socket.io"
+import SocketIOClient from "socket.io-client"
 
 export default function Home() {
-  const [connected, setConnected] = useState<boolean>(false);
-  const [nbUser, setNbUser] = useState<number>(0);
-  const [socket, setSocket] = useState<Socket>();
+  const [connected, setConnected] = useState<boolean>(false)
+  const [nbUser, setNbUser] = useState<number>(0)
+  const [socket, setSocket] = useState<Socket>()
 
   useEffect(() => {
-    const url = window.location.host;
+    const url = window.location.host
     const clientSocket = SocketIOClient(url, {
       path: "/api/socket/init",
-    });
+    })
 
-    setSocket(clientSocket as unknown as Socket);
+    setSocket(clientSocket as unknown as Socket)
 
     // log socket connection
     clientSocket.on("connect", () => {
-      setConnected(true);
-    });
+      setConnected(true)
+    })
 
     // Update the number of user when evetn "new-user" is emited
     clientSocket.on("new-user", (option) => {
-      setNbUser(option.connectionCount);
-    });
+      setNbUser(option.connectionCount)
+    })
 
-    setTimeout(() => clientSocket.emit("test"), 1000);
+    setTimeout(() => clientSocket.emit("test"), 1000)
 
     return () => {
-      setSocket(undefined);
-      clientSocket.close();
-    };
-  }, []);
+      setSocket(undefined)
+      clientSocket.close()
+    }
+  }, [])
 
   if (!connected) {
-    return <>Loading</>;
+    return <>Loading</>
   }
 
   return (
@@ -55,5 +55,5 @@ export default function Home() {
         </section>
       </main>
     </>
-  );
+  )
 }

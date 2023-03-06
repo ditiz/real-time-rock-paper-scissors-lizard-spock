@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders DisplayGameResult unchanged 1`] = `
+<div>
+  <article
+    class="game__result"
+  >
+    <section>
+      You win !
+    </section>
+  </article>
+</div>
+`;

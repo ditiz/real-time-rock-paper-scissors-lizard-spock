@@ -1,3 +1,3 @@
-import GameTitle from "./game/title";
+import GameTitle from "./game/title"
 
-export { GameTitle };
+export { GameTitle }
