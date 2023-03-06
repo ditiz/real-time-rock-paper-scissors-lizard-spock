@@ -1,10 +1,10 @@
-import { ImageOption, Option } from "@/types/game";
-import Image from "next/image";
+import { ImageOption, Option } from "@/types/game"
+import Image from "next/image"
 
 interface GameOptionProps {
-  option: ImageOption;
-  choice: Option | undefined;
-  setChoice: (option: Option) => void;
+  option: ImageOption
+  choice: Option | undefined
+  setChoice: (option: Option) => void
 }
 
 export const GameOption: React.FC<GameOptionProps> = ({
@@ -13,8 +13,8 @@ export const GameOption: React.FC<GameOptionProps> = ({
   setChoice,
 }) => {
   const handleClick = (pick: Option) => {
-    setChoice(pick);
-  };
+    setChoice(pick)
+  }
 
   return (
     <section key={option.name} onClick={() => handleClick(option.value)}>
@@ -26,5 +26,5 @@ export const GameOption: React.FC<GameOptionProps> = ({
         style={{ border: choice === option.value ? "3px solid red" : "none" }}
       />
     </section>
-  );
-};
+  )
+}
