@@ -1,10 +1,12 @@
 import { GameResult } from "@/types/game"
 
-interface GameResultProps {
+interface GameResultMoleculeProps {
   result: GameResult | undefined
 }
 
-const DisplayGameResult: React.FC<GameResultProps> = ({ result: result }) => {
+const GameResultMolecule: React.FC<GameResultMoleculeProps> = ({
+  result: result,
+}) => {
   // If no result, we display nothing
   if (!result) {
     return <></>
@@ -21,4 +23,4 @@ const DisplayGameResult: React.FC<GameResultProps> = ({ result: result }) => {
   )
 }
 
-export default DisplayGameResult
+export default GameResultMolecule
