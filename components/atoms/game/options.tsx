@@ -4,4 +4,4 @@ const GameOptionsAtom: React.FC<GameOptionsAtomProps> = () => {
   return <></>
 }
 
-export default GameOptionsAtomProps
+export default GameOptionsAtom

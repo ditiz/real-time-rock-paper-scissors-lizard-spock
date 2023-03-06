@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Socket } from "socket.io"
 import { DefaultEventsMap } from "socket.io/dist/typed-events"
 import { GameTitle } from "../atoms"
-import DisplayGameResult from "../molecules/DisplayGameResult"
+import GameResultMolecule from "../molecules/GameResult"
 import { GameOption } from "./GameOption"
 
 interface GameProps {
@@ -55,7 +55,7 @@ function Game({ socket }: GameProps) {
           />
         ))}
       </article>
-      <DisplayGameResult result={gameResult} />
+      <GameResultMolecule result={gameResult} />
     </>
   )
 }

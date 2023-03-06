@@ -1,0 +1,8 @@
+import "@testing-library/jest-dom"
+import { render, screen } from "@testing-library/react"
+import {{pascalCase name}}Molecule from "./{{pascalCase name}}"
+
+it("renders {{pascalCase name}}Molecule unchanged", () => {
+  const { container } = render(<{{pascalCase name}}Molecule />)
+  expect(container).toMatchSnapshot()
+})
