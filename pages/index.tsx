@@ -1,4 +1,4 @@
-import Game from "@/component/Game"
+import Game from "@/components/organisms/Game"
 import { useEffect, useState } from "react"
 import { Socket } from "socket.io"
 import SocketIOClient from "socket.io-client"
