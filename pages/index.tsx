@@ -1,4 +1,4 @@
-import Game from "@/components/organisms/Game"
+import GameOrganism from "@/components/organisms/Game"
 import { useEffect, useState } from "react"
 import { Socket } from "socket.io"
 import SocketIOClient from "socket.io-client"
@@ -50,7 +50,7 @@ export default function Home() {
               Waiting for another player
             </article>
           ) : (
-            <Game socket={socket as Socket} />
+            <GameOrganism socket={socket as Socket} />
           )}
         </section>
       </main>

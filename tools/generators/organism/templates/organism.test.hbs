@@ -1,0 +1,8 @@
+import "@testing-library/jest-dom"
+import { render, screen } from "@testing-library/react"
+import {{pascalCase name}}Organism from "./{{pascalCase name}}"
+
+it("renders {{pascalCase name}}Organism unchanged", () => {
+  const { container } = render(<{{pascalCase name}}Organism />)
+  expect(container).toMatchSnapshot()
+})

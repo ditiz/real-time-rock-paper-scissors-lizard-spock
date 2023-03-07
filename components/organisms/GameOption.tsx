@@ -1,13 +1,13 @@
 import { ImageOption, Option } from "@/types/game"
 import Image from "next/image"
 
-interface GameOptionProps {
+interface GameOptionOrganismProps {
   option: ImageOption
   choice: Option | undefined
   setChoice: (option: Option) => void
 }
 
-export const GameOption: React.FC<GameOptionProps> = ({
+const GameOptionOrganism: React.FC<GameOptionOrganismProps> = ({
   option,
   choice,
   setChoice,
@@ -17,7 +17,7 @@ export const GameOption: React.FC<GameOptionProps> = ({
   }
 
   return (
-    <section key={option.name} onClick={() => handleClick(option.value)}>
+    <section onClick={() => handleClick(option.value)}>
       <Image
         src={option.path}
         width={50}
@@ -28,3 +28,5 @@ export const GameOption: React.FC<GameOptionProps> = ({
     </section>
   )
 }
+
+export default GameOptionOrganism
