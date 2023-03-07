@@ -17,7 +17,7 @@ const GameOptionOrganism: React.FC<GameOptionOrganismProps> = ({
   }
 
   return (
-    <section key={option.name} onClick={() => handleClick(option.value)}>
+    <section onClick={() => handleClick(option.value)}>
       <Image
         src={option.path}
         width={50}

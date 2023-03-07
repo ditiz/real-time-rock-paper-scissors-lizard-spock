@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders GameOption unchanged 1`] = `
+<div>
+  <section>
+    <img
+      alt="rock icons"
+      data-nimg="1"
+      decoding="async"
+      height="50"
+      loading="lazy"
+      src="icons/rock.svg"
+      style="color: transparent; border: 3px solid red;"
+      width="50"
+    />
+  </section>
+</div>
+`;
