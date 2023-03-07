@@ -41,7 +41,15 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Build
+### Pre-commit
+
+This projet use husky to handle pre-commit hooks.
+
+Before each commit, these actions will be run: 
+- Checking if your commit message match [conventionnal-commit convention](https://www.conventionalcommits.org/en/v1.0.0/)
+- Running prettier on your modification.
+
+### Build
 
 To build the project, run:
 
