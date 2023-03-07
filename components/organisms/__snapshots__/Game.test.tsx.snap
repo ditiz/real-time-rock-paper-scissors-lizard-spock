@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders GameOption unchanged 1`] = `
+<div>
+  <h2
+    class="game__title"
+  >
+    Choose your move
+  </h2>
+  <article
+    class="game"
+  >
+    <section>
+      <img
+        alt="rock icons"
+        data-nimg="1"
+        decoding="async"
+        height="50"
+        loading="lazy"
+        src="icons/rock.svg"
+        style="color: transparent;"
+        width="50"
+      />
+    </section>
+    <section>
+      <img
+        alt="paper icons"
+        data-nimg="1"
+        decoding="async"
+        height="50"
+        loading="lazy"
+        src="icons/paper.svg"
+        style="color: transparent;"
+        width="50"
+      />
+    </section>
+    <section>
+      <img
+        alt="scissors icons"
+        data-nimg="1"
+        decoding="async"
+        height="50"
+        loading="lazy"
+        src="icons/scissors.svg"
+        style="color: transparent;"
+        width="50"
+      />
+    </section>
+    <section>
+      <img
+        alt="lizard icons"
+        data-nimg="1"
+        decoding="async"
+        height="50"
+        loading="lazy"
+        src="icons/lizard.svg"
+        style="color: transparent;"
+        width="50"
+      />
+    </section>
+    <section>
+      <img
+        alt="spock icons"
+        data-nimg="1"
+        decoding="async"
+        height="50"
+        loading="lazy"
+        src="icons/spock.svg"
+        style="color: transparent;"
+        width="50"
+      />
+    </section>
+  </article>
+</div>
+`;
