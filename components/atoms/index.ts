@@ -1,3 +1,6 @@
-import GameTitle from "./game/title"
+import GameOptionsAtom from "./game/options"
+import GameResultAtom from "./game/result"
+import GameTitleAtom from "./game/title"
 
-export { GameTitle }
+export { GameTitleAtom, GameOptionsAtom, GameResultAtom }
+

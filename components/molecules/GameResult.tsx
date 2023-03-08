@@ -1,4 +1,5 @@
 import { GameResult } from "@/types/game"
+import { GameResultAtom } from "../atoms"
 
 interface GameResultMoleculeProps {
   result: GameResult | undefined
@@ -13,13 +14,19 @@ const GameResultMolecule: React.FC<GameResultMoleculeProps> = ({
   }
 
   return (
-    <article className="game__result">
-      {result === GameResult.tie ? <section>It&apos;s a tie</section> : null}
+    <>
+      {result === GameResult.tie ? (
+        <GameResultAtom>It&apos;s a tie</GameResultAtom>
+      ) : null}
 
-      {result === GameResult.win ? <section>You win !</section> : null}
+      {result === GameResult.win ? (
+        <GameResultAtom>You win !</GameResultAtom>
+      ) : null}
 
-      {result === GameResult.lose ? <section>You lose...</section> : null}
-    </article>
+      {result === GameResult.lose ? (
+        <GameResultAtom>You lose...</GameResultAtom>
+      ) : null}
+    </>
   )
 }
 
