@@ -2,11 +2,11 @@ import { Option } from "@/types/game"
 import { imageOptions } from "@/utils/game"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import GameOptionOrganism from "./GameOption"
+import GameOptionMolecule from "./GameOption"
 
 it("renders GameOption unchanged", () => {
   const { container } = render(
-    <GameOptionOrganism
+    <GameOptionMolecule
       choice={Option.rock}
       option={imageOptions[0]}
       setChoice={jest.fn}
@@ -17,7 +17,7 @@ it("renders GameOption unchanged", () => {
 
 test("contain img", () => {
   render(
-    <GameOptionOrganism
+    <GameOptionMolecule
       choice={Option.rock}
       option={imageOptions[0]}
       setChoice={jest.fn}
@@ -35,7 +35,7 @@ test("click action", () => {
   const mockSetChoice = jest.fn()
 
   render(
-    <GameOptionOrganism
+    <GameOptionMolecule
       choice={Option.rock}
       option={imageOptions[0]}
       setChoice={mockSetChoice}
