@@ -24,19 +24,17 @@ export default {
 } as ComponentMeta<typeof GameOptionMolecule>
 
 const Template: ComponentStory<typeof GameOptionMolecule> = (args) => (
-  <GameOptionMolecule {...args} />
+  <GameOptionMolecule {...args} setChoice={() => {}} />
 )
 
 export const Selected = Template.bind({})
 Selected.args = {
   choice: imageOptions[0].value,
   option: imageOptions[0],
-  setChoice: () => {},
 }
 
 export const Unselected = Template.bind({})
 Unselected.args = {
   choice: imageOptions[1].value,
   option: imageOptions[3],
-  setChoice: () => {},
 }
