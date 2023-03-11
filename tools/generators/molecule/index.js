@@ -36,6 +36,24 @@ module.exports = {
         path: "components/molecules/{{pascalCase name}}.test.tsx",
         templateFile: "./tools/generators/molecule/templates/molecule.test.hbs",
       },
+      {
+        type: "add",
+        path: "components/molecules/{{pascalCase name}}.stories.tsx",
+        templateFile:
+          "./tools/generators/molecule/templates/molecule.stories.hbs",
+      },
+      {
+        type: "modify",
+        path: "components/molecules/index.ts",
+        pattern: /(\/\/ imports)/g,
+        template: 'import {{pascalCase name}}Molecule from "./{{name}}"\n$1',
+      },
+      {
+        type: "modify",
+        path: "components/molecules/index.ts",
+        pattern: /(\/\/ export)/g,
+        template: "\t{{pascalCase name}}Molecule,\n$1",
+      },
     ]
   },
 }

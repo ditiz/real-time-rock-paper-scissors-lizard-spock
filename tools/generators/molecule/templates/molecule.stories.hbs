@@ -1,0 +1,13 @@
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { {{pascalCase name}}Molecule } from "."
+
+export default {
+  title: "Molecules/{{pascalCase name}}",
+  component: {{pascalCase name}}Molecule,
+} as ComponentMeta<typeof {{pascalCase name}}Molecule>
+
+const Template: ComponentStory<typeof {{pascalCase name}}Molecule> = (args) => (
+  <{{pascalCase name}}Molecule {...args} />
+)
+
+export const Default = Template.bind({})
