@@ -1,3 +1,9 @@
-import GameTitle from "./game/title"
+import GameResultAtom from "./game/result"
+import GameTitleAtom from "./game/title"
+// imports
 
-export { GameTitle }
+export {
+  GameTitleAtom,
+  GameResultAtom,
+  // exports
+}

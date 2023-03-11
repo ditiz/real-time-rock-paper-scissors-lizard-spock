@@ -1,0 +1,13 @@
+import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { {{pascalCase name}}Atom } from "."
+
+export default {
+  title: "Atoms/{{pascalCase name}}",
+  component: {{pascalCase name}}Atom,
+} as ComponentMeta<typeof {{pascalCase name}}Atom>
+
+const Template: ComponentStory<typeof {{pascalCase name}}Atom> = (args) => (
+  <{{pascalCase name}}Atom {...args} />
+)
+
+export const Default = Template.bind({})

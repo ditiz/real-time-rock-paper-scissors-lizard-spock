@@ -1,4 +1,7 @@
-import GameOrganism from "./Game";
-import GameOptionOrganism from "./GameOption";
+import GameOrganism from "./Game"
+// imports
 
-export { GameOrganism, GameOptionOrganism };
+export {
+  GameOrganism,
+  // exports
+}

@@ -1,3 +1,9 @@
-import GameResultMolecule from "./GameResult";
+import GameOptionMolecule from "./GameOption"
+import GameResultMolecule from "./GameResult"
+// imports
 
-export { GameResultMolecule };
+export {
+  GameResultMolecule,
+  GameOptionMolecule,
+  // exports
+}

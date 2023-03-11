@@ -1,13 +1,13 @@
 import { ImageOption, Option } from "@/types/game"
 import Image from "next/image"
 
-interface GameOptionOrganismProps {
+interface GameOptionMoleculeProps {
   option: ImageOption
   choice: Option | undefined
   setChoice: (option: Option) => void
 }
 
-const GameOptionOrganism: React.FC<GameOptionOrganismProps> = ({
+const GameOptionMolecule: React.FC<GameOptionMoleculeProps> = ({
   option,
   choice,
   setChoice,
@@ -29,4 +29,4 @@ const GameOptionOrganism: React.FC<GameOptionOrganismProps> = ({
   )
 }
 
-export default GameOptionOrganism
+export default GameOptionMolecule
