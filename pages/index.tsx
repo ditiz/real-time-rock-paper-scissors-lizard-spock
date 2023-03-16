@@ -1,4 +1,5 @@
 import GameOrganism from "@/components/organisms/Game"
+import Head from "next/head"
 import { useEffect, useState } from "react"
 import { Socket } from "socket.io"
 import SocketIOClient from "socket.io-client"
@@ -40,9 +41,14 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Rock Paper Scissor Lizard Spock</title>
+      </Head>
+
       <header>
         <h1>Rock Paper Scissors Lizard Spock</h1>
       </header>
+
       <main>
         <section>
           {socket && nbUser < 2 ? (
