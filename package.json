@@ -10,6 +10,7 @@
     "generate": "plop ",
     "prepare": "husky install",
     "test": "jest --watch",
+    "e2e": "npx playwright test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -30,6 +31,7 @@
     "@babel/core": "^7.21.0",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@playwright/test": "^1.31.2",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
