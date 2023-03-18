@@ -1,3 +1,4 @@
+import { WaitingPlayerMolecule } from "@/components/molecules"
 import GameOrganism from "@/components/organisms/Game"
 import Head from "next/head"
 import { useEffect, useState } from "react"
@@ -52,9 +53,7 @@ export default function Home() {
       <main>
         <section>
           {socket && nbUser < 2 ? (
-            <article className="game__waiting-message">
-              Waiting for another player
-            </article>
+            <WaitingPlayerMolecule />
           ) : (
             <GameOrganism socket={socket as Socket} />
           )}
