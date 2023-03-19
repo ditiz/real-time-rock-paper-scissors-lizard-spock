@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { WaitingMessageAtom } from "."
+import { WaitingMessageAtom } from ".."
 
 export default {
   title: "Atoms/Game/WaitingMessage",
