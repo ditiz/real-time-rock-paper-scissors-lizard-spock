@@ -1,4 +1,4 @@
-import { WaitingPlayerMolecule } from "@/components/molecules"
+import { HeaderMolecule, WaitingPlayerMolecule } from "@/components/molecules"
 import GameOrganism from "@/components/organisms/Game"
 import useCreateSocket from "@/hooks/useCreateSocket"
 import Head from "next/head"
@@ -16,9 +16,7 @@ export default function Home() {
         <title>Rock Paper Scissor Lizard Spock</title>
       </Head>
 
-      <header>
-        <h1>Rock Paper Scissors Lizard Spock</h1>
-      </header>
+      <HeaderMolecule />
 
       <main>
         {socket && nbUser < 2 ? (
