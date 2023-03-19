@@ -2,12 +2,10 @@
 
 exports[`renders DisplayGameResult unchanged 1`] = `
 <div>
-  <article
+  <section
     class="game__result"
   >
-    <section>
-      You win !
-    </section>
-  </article>
+    You win !
+  </section>
 </div>
 `;

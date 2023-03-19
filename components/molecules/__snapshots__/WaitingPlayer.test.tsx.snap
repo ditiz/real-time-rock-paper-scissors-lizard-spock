@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders WaitingPlayerMolecule unchanged 1`] = `
+<div>
+  <article
+    class="game__waiting-message"
+  >
+    Waiting for another player
+  </article>
+</div>
+`;
