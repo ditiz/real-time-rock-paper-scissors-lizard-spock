@@ -10,6 +10,7 @@
     "generate": "plop ",
     "prepare": "husky install",
     "test": "jest --watch",
+    "test:ci": "jest --bail",
     "e2e": "npx playwright test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

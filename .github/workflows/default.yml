@@ -1,9 +1,9 @@
-name: Playwright Tests
+name: Build, Lint & Test
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 jobs:
   test:
     timeout-minutes: 60
@@ -12,13 +12,21 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+
+      - name: Lint
+        run: npm run lint
+
       - name: Build the project
         run: npm run build
+
+      - name: Run unit tests
+        run: npm run test:ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v3
