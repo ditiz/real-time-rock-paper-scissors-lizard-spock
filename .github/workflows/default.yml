@@ -40,7 +40,7 @@ jobs:
         id: playwright-version
         env:
           Playwright_Package_Name: "@playwright/test"
-        run: echo "PLAYWRIGHT_VERSION=$(npm list ${{ env.Playwright_Package_Name }})" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_VERSION=$(npm ls ${{ env.Playwright_Package_Name }} -j | jq -r '.dependencies | .[] | .version')" >> $GITHUB_ENV
       - uses: actions/cache@v3
         with:
           path: ~/.cache/ms-playwright
