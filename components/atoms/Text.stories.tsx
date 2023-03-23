@@ -11,3 +11,6 @@ const Template: ComponentStory<typeof TextAtom> = (args) => (
 )
 
 export const Default = Template.bind({})
+Default.args = {
+  children: "Exemple of some text.",
+}
