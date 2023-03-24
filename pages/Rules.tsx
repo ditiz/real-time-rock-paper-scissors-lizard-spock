@@ -1,6 +1,5 @@
 import { TextAtom } from "@/components/atoms"
-import rulesImage from "@/public/imgs/rules.webp"
-import Image from "next/image"
+import { RulesDetailsOrganism } from "@/components/organisms"
 
 export default function Rules() {
   return (
@@ -13,23 +12,8 @@ export default function Rules() {
           until a winner is found.
         </TextAtom>
       </section>
-      <section className="rules__details">
-        <div>
-          <Image src={rulesImage} alt="rules" width={500} height={500} />
-        </div>
-        <div>
-          <TextAtom>Scissors cuts Paper</TextAtom>
-          <TextAtom>Paper covers Rock</TextAtom>
-          <TextAtom>Rock crushes Lizard</TextAtom>
-          <TextAtom>Lizard poisons Spock</TextAtom>
-          <TextAtom>Spock smashes Scissors</TextAtom>
-          <TextAtom>Scissors decapitates Lizard</TextAtom>
-          <TextAtom>Lizard eats Paper</TextAtom>
-          <TextAtom>Paper disproves Spock</TextAtom>
-          <TextAtom>Spock vaporizes Rock</TextAtom>
-          <TextAtom>(and as it always has) Rock crushes Scissors</TextAtom>
-        </div>
-      </section>
+
+      <RulesDetailsOrganism />
     </article>
   )
 }
