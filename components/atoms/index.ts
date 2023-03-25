@@ -3,6 +3,7 @@ import GameTitleAtom from "./game/title"
 import WaitingMessageAtom from "./game/waitingMessage"
 import HeaderAtom from "./Header"
 import TextAtom from "./Text"
+import NavbarAtom from "./Navbar"
 // imports
 
 export {
@@ -11,5 +12,6 @@ export {
   WaitingMessageAtom,
   HeaderAtom,
   TextAtom,
-  // exports
+  	NavbarAtom,
+// exports
 }
