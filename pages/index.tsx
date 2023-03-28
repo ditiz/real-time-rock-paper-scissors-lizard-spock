@@ -1,4 +1,5 @@
 import { HeaderMolecule, WaitingPlayerMolecule } from "@/components/molecules"
+import { NavbarOrganism } from "@/components/organisms"
 import GameOrganism from "@/components/organisms/Game"
 import useCreateSocket from "@/hooks/useCreateSocket"
 import Head from "next/head"
@@ -12,6 +13,8 @@ export default function Home() {
 
   return (
     <>
+      <NavbarOrganism />
+
       <Head>
         <title>Rock Paper Scissor Lizard Spock</title>
       </Head>

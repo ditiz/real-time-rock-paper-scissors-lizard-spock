@@ -1,6 +1,6 @@
 export enum routes {
   home = "/",
-  rules = "/rules",
+  rules = "/Rules",
 }
 
 export const navbarLinks = [
