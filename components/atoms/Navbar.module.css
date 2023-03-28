@@ -5,4 +5,7 @@
   color: black;
   font-family: Roboto;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
