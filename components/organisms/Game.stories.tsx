@@ -3,7 +3,7 @@ import { Socket } from "socket.io"
 import { GameOrganism } from "."
 
 export default {
-  title: "Organism/Game",
+  title: "Organisms/Game",
   component: GameOrganism,
   argTypes: {
     socket: {

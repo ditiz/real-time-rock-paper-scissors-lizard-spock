@@ -1,0 +1,11 @@
+.navbar {
+  margin: 1rem;
+  padding: 0.7rem;
+  background: var(--c-2);
+  color: black;
+  font-family: Roboto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

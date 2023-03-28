@@ -2,6 +2,7 @@ import GameOptionMolecule from "./GameOption"
 import GameResultMolecule from "./GameResult"
 import HeaderMolecule from "./Header"
 import WaitingPlayerMolecule from "./WaitingPlayer"
+import RulesMainMolecule from "./RulesMain"
 // imports
 
 export {
@@ -9,5 +10,6 @@ export {
   GameOptionMolecule,
   WaitingPlayerMolecule,
   HeaderMolecule,
-  // exports
+  	RulesMainMolecule,
+// exports
 }

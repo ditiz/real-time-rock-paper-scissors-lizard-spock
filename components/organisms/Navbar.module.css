@@ -1,0 +1,10 @@
+.navbar__logo {
+  width: 2rem;
+  height: 2rem;
+  background: var(--c-3);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1rem;
+}

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders NavbarOrganism unchanged 1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="navbar__logo"
+    />
+    <div
+      class="navbar__links"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/Rules"
+      >
+        Rules
+      </a>
+    </div>
+  </nav>
+</div>
+`;
