@@ -11,3 +11,6 @@ const Template: ComponentStory<typeof NavbarAtom> = (args) => (
 )
 
 export const Default = Template.bind({})
+Default.args = {
+  children: <div>Navbar</div>,
+}
