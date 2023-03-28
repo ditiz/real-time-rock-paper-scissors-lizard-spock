@@ -11,7 +11,9 @@ const NavbarOrganism: React.FC<NavbarOrganismProps> = () => {
       <div className={styles.navbar__logo}></div>
       <div className={styles.navbar__links}>
         {navbarLinks.map((link) => (
-          <Link href={link.path}>{link.name}</Link>
+          <Link key={link.name} href={link.path}>
+            {link.name}
+          </Link>
         ))}
       </div>
     </NavbarAtom>
