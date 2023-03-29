@@ -16,3 +16,8 @@ test("header", async ({ page }) => {
 
   expect(title).toBe("Rock Paper Scissors Lizard Spock")
 })
+
+test("waiting message", async ({ page }) => {
+  await page.goto(projectUrl)
+  expect(page.getByText("Waiting for another player")).toBeTruthy()
+})
