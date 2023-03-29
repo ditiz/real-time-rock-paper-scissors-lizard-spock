@@ -8,7 +8,8 @@ it("renders NavbarOrganism unchanged", () => {
 })
 
 it("should have logo", () => {
-  // TODO: create logo and check it here
+  render(<NavbarOrganism />)
+  expect(screen.getByRole("img")).toBeInTheDocument()
 })
 
 it("should have links", () => {
