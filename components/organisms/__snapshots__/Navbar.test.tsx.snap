@@ -7,7 +7,19 @@ exports[`renders NavbarOrganism unchanged 1`] = `
   >
     <div
       class="navbar__logo"
-    />
+    >
+      <img
+        alt="logo"
+        data-nimg="1"
+        decoding="async"
+        height="25"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+        style="color: transparent;"
+        width="25"
+      />
+    </div>
     <div
       class="navbar__links"
     >
