@@ -19,7 +19,8 @@ test("header", async ({ page }) => {
 
 test("waiting message", async ({ page }) => {
   await page.goto(projectUrl)
-  expect(page.getByText("Waiting for another player")).toBeTruthy()
+  const main = page.locator("main")
+  await expect(main).toContainText("Waiting for another player")
 })
 
 test("game icons when 2 player are connected", async ({ browser }) => {
@@ -47,8 +48,11 @@ test.describe(() => {
     await page.getByRole("img", { name: "rock icons" }).click()
     await page1.getByRole("img", { name: "scissors icons" }).click()
 
-    expect(page.getByText("You win !")).toBeTruthy()
-    expect(page1.getByText("You lose...")).toBeTruthy()
+    const main = page.locator("main")
+    const main1 = page1.locator("main")
+
+    await expect(main).toContainText("You win !")
+    await expect(main1).toContainText("You lose...")
   })
 
   test("paper should lose against scissors", async ({ browser }) => {
@@ -61,8 +65,11 @@ test.describe(() => {
     await page.getByRole("img", { name: "paper icons" }).click()
     await page1.getByRole("img", { name: "scissors icons" }).click()
 
-    expect(page.getByText("You lose...")).toBeTruthy()
-    expect(page1.getByText("You win !")).toBeTruthy()
+    const main = page.locator("main")
+    const main1 = page1.locator("main")
+
+    await expect(main).toContainText("You lose...")
+    await expect(main1).toContainText("You win !")
   })
 
   test("rock against rock should tie", async ({ browser }) => {
@@ -75,7 +82,10 @@ test.describe(() => {
     await page.getByRole("img", { name: "rock icons" }).click()
     await page1.getByRole("img", { name: "rock icons" }).click()
 
-    expect(page.getByText("It's a tie")).toBeTruthy()
-    expect(page1.getByText("You lose...")).toBeTruthy()
+    const main = page.locator("main")
+    const main1 = page1.locator("main")
+
+    await expect(main).toContainText(["It's a tie"])
+    await expect(main1).toContainText("It's a tie")
   })
 })
