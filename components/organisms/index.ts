@@ -1,11 +1,11 @@
 import GameOrganism from "./Game"
-import RulesDetailsOrganism from "./RulesDetails"
 import NavbarOrganism from "./Navbar"
+import RulesDetailsOrganism from "./RulesDetails"
 // imports
 
 export {
   GameOrganism,
-  	RulesDetailsOrganism,
-	NavbarOrganism,
-// exports
+  RulesDetailsOrganism,
+  NavbarOrganism,
+  // exports
 }
