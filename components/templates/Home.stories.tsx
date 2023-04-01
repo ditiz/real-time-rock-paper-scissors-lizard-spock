@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { HomeTemplate} from "."
+import { HomeTemplate } from "."
 
 export default {
   title: "Templates/Home",
@@ -10,4 +10,4 @@ const Template: ComponentStory<typeof HomeTemplate> = (args) => (
   <HomeTemplate {...args} />
 )
 
-export const Default = Template.bind({})
+export const Loading = Template.bind({})
