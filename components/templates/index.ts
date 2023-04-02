@@ -1,7 +1,9 @@
 import HomeTemplate from "./Home"
+import RulesTemplate from "./Rules"
 // imports
 
 export {
   HomeTemplate,
-  // exports
+  	RulesTemplate,
+// exports
 }
