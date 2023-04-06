@@ -1,0 +1,8 @@
+import "@testing-library/jest-dom"
+import { render, screen } from "@testing-library/react"
+import {{pascalCase name}}Template from "./{{pascalCase name}}"
+
+it("renders {{pascalCase name}}Template unchanged", () => {
+  const { container } = render(<{{pascalCase name}}Template />)
+  expect(container).toMatchSnapshot()
+})

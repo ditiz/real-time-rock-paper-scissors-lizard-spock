@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders RulesTemplate unchanged 1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="navbar__logo"
+    >
+      <img
+        alt="logo"
+        data-nimg="1"
+        decoding="async"
+        height="25"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+        style="color: transparent;"
+        width="25"
+      />
+    </div>
+    <div
+      class="navbar__links"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/Rules"
+      >
+        Rules
+      </a>
+    </div>
+  </nav>
+  <article
+    class="rules"
+  >
+    <p
+      class="text"
+    >
+      The game is an expansion on the game Rock, Paper, Scissors. Each player picks a variable and reveals it at the same time. The winner is the one who defeats the others. In a tie, the process is repeated until a winner is found.
+    </p>
+    <section
+      class="rules__details"
+    >
+      <div>
+        <img
+          alt="rules"
+          data-nimg="1"
+          decoding="async"
+          height="500"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=1080&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=640&q=75 1x, /_next/image?url=%2Fimg.jpg&w=1080&q=75 2x"
+          style="color: transparent;"
+          width="500"
+        />
+      </div>
+      <div>
+        <p
+          class="text"
+        >
+          Scissors cuts Paper
+        </p>
+        <p
+          class="text"
+        >
+          Paper covers Rock
+        </p>
+        <p
+          class="text"
+        >
+          Rock crushes Lizard
+        </p>
+        <p
+          class="text"
+        >
+          Lizard poisons Spock
+        </p>
+        <p
+          class="text"
+        >
+          Spock smashes Scissors
+        </p>
+        <p
+          class="text"
+        >
+          Scissors decapitates Lizard
+        </p>
+        <p
+          class="text"
+        >
+          Lizard eats Paper
+        </p>
+        <p
+          class="text"
+        >
+          Paper disproves Spock
+        </p>
+        <p
+          class="text"
+        >
+          Spock vaporizes Rock
+        </p>
+        <p
+          class="text"
+        >
+          (and as it always has) Rock crushes Scissors
+        </p>
+      </div>
+    </section>
+  </article>
+</div>
+`;
