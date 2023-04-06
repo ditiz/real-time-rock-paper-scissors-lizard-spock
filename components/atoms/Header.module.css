@@ -1,3 +1,13 @@
 .header {
   font-family: Roboto;
 }
+
+.header h1 {
+  margin: auto;
+  width: max-content;
+  background: linear-gradient(to right, var(--c-3), var(--c-4));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
