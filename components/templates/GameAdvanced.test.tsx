@@ -1,13 +1,13 @@
 import * as hooks from "@/hooks"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import HomeTemplate from "./Home"
+import GameAdvancedTemplate from "./GameAdvanced"
 
 jest.mock("@/hooks", () => ({
   useCreateSocket: jest.fn(),
 }))
 
-it("renders HomeTemplate unchanged", () => {
+it("renders GameAdvancedTemplate unchanged", () => {
   jest.spyOn(hooks, "useCreateSocket").mockImplementationOnce(() => ({
     connected: true,
     nbUser: 2,
@@ -16,7 +16,7 @@ it("renders HomeTemplate unchanged", () => {
     } as any,
   }))
 
-  const { container } = render(<HomeTemplate />)
+  const { container } = render(<GameAdvancedTemplate />)
   expect(container).toMatchSnapshot()
 })
 
@@ -29,7 +29,7 @@ it("should loading", () => {
     } as any,
   }))
 
-  render(<HomeTemplate />)
+  render(<GameAdvancedTemplate />)
   expect(screen.getByText(/Loading/)).toBeInTheDocument()
 })
 
@@ -42,7 +42,7 @@ it("should contain title", () => {
     } as any,
   }))
 
-  render(<HomeTemplate />)
+  render(<GameAdvancedTemplate />)
   expect(
     screen.getByText("Rock Paper Scissors Lizard Spock")
   ).toBeInTheDocument()
@@ -57,7 +57,7 @@ it("should have waiting message", () => {
     } as any,
   }))
 
-  render(<HomeTemplate />)
+  render(<GameAdvancedTemplate />)
   expect(screen.getByText(/waiting/i)).toBeInTheDocument()
 })
 
@@ -70,6 +70,6 @@ it("should have game", () => {
     } as any,
   }))
 
-  render(<HomeTemplate />)
+  render(<GameAdvancedTemplate />)
   expect(screen.getAllByRole("img")).toHaveLength(6)
 })

@@ -1,9 +1,9 @@
-import HomeTemplate from "./Home"
+import GameAdvancedTemplate from "./GameAdvanced"
 import RulesTemplate from "./Rules"
 // imports
 
 export {
-  HomeTemplate,
-  	RulesTemplate,
-// exports
+  GameAdvancedTemplate,
+  RulesTemplate,
+  // exports
 }

@@ -5,9 +5,9 @@ import { useCreateSocket } from "@/hooks"
 import Head from "next/head"
 import { Socket } from "socket.io"
 
-interface HomeTemplateProps {}
+interface GameAdvancedTemplateProps {}
 
-const HomeTemplate: React.FC<HomeTemplateProps> = () => {
+const GameAdvancedTemplate: React.FC<GameAdvancedTemplateProps> = () => {
   const { connected, nbUser, socket } = useCreateSocket()
 
   if (!connected) {
@@ -35,4 +35,4 @@ const HomeTemplate: React.FC<HomeTemplateProps> = () => {
   )
 }
 
-export default HomeTemplate
+export default GameAdvancedTemplate
