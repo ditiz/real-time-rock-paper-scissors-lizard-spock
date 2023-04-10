@@ -2,13 +2,14 @@ import { HeaderMolecule, WaitingPlayerMolecule } from "@/components/molecules"
 import { NavbarOrganism } from "@/components/organisms"
 import GameOrganism from "@/components/organisms/Game"
 import { useCreateSocket } from "@/hooks"
+import { Namespace } from "@/types/namespace"
 import Head from "next/head"
 import { Socket } from "socket.io"
 
 interface GameAdvancedTemplateProps {}
 
 const GameAdvancedTemplate: React.FC<GameAdvancedTemplateProps> = () => {
-  const { connected, nbUser, socket } = useCreateSocket()
+  const { connected, nbUser, socket } = useCreateSocket(Namespace.advanced)
 
   if (!connected) {
     return <>Loading</>

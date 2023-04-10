@@ -1,7 +1,8 @@
+import { Namespace } from "@/types/namespace"
 import { Server as NetServer } from "http"
 import { Socket } from "net"
 import { NextApiRequest, NextApiResponse } from "next"
-import { Server as ServerIO } from "socket.io"
+import { Server as ServerIO, Socket as SocketIo } from "socket.io"
 
 export type NextApiResponseServerIO = NextApiResponse & {
   socket: Socket & {
@@ -33,8 +34,8 @@ export default async function handler(
       },
     })
 
-    io.on("connection", (socket) => {
-      io.emit("new-user", {
+    io.of(Namespace.advanced).on("connection", (socket: SocketIo) => {
+      io.of(Namespace.advanced).emit("new-user", {
         latestConnection: socket.id,
         connectionCount: (io.engine as unknown as Record<string, unknown>)
           .clientsCount,
@@ -46,7 +47,7 @@ export default async function handler(
       })
 
       socket.on("disconnect", () => {
-        console.log("a user disconnected")
+        console.info("a user disconnected")
       })
     })
 

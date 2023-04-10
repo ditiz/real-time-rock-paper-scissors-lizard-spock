@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
 import { Socket } from "socket.io"
-import SocketIOClient from "socket.io-client"
+import { Manager } from "socket.io-client"
 
-const useCreateSocket = () => {
+const useCreateSocket = (namespace: string) => {
   const [connected, setConnected] = useState<boolean>(false)
   const [nbUser, setNbUser] = useState<number>(0)
   const [socket, setSocket] = useState<Socket>()
 
   useEffect(() => {
     const url = window.location.host
-    const clientSocket = SocketIOClient(url, {
+
+    const manager = new Manager(url, {
       path: "/api/socket/init",
     })
+
+    const clientSocket = manager.socket(namespace)
 
     setSocket(clientSocket as unknown as Socket)
 
