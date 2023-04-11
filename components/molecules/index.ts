@@ -3,6 +3,7 @@ import GameResultMolecule from "./GameResult"
 import HeaderMolecule from "./Header"
 import WaitingPlayerMolecule from "./WaitingPlayer"
 import RulesMainMolecule from "./RulesMain"
+import GameClassicHeaderMolecule from "./GameClassicHeader"
 // imports
 
 export {
@@ -11,5 +12,6 @@ export {
   WaitingPlayerMolecule,
   HeaderMolecule,
   	RulesMainMolecule,
+	GameClassicHeaderMolecule,
 // exports
 }
