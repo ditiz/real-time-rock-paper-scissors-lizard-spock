@@ -43,7 +43,7 @@ export default async function handler(
 
       socket.on("user-action", (args) => {
         console.info("user-action", args.choice)
-        io.emit("rcv-action", args.choice, socket.id)
+        io.of(Namespace.advanced).emit("rcv-action", args.choice, socket.id)
       })
 
       socket.on("disconnect", () => {

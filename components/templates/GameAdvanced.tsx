@@ -11,10 +11,6 @@ interface GameAdvancedTemplateProps {}
 const GameAdvancedTemplate: React.FC<GameAdvancedTemplateProps> = () => {
   const { connected, nbUser, socket } = useCreateSocket(Namespace.advanced)
 
-  if (!connected) {
-    return <>Loading</>
-  }
-
   return (
     <>
       <NavbarOrganism />
@@ -26,10 +22,16 @@ const GameAdvancedTemplate: React.FC<GameAdvancedTemplateProps> = () => {
       <HeaderMolecule />
 
       <main>
-        {socket && nbUser < 2 ? (
-          <WaitingPlayerMolecule />
+        {!connected ? (
+          <span>Loading</span>
         ) : (
-          <GameOrganism socket={socket as Socket} />
+          <>
+            {socket && nbUser < 2 ? (
+              <WaitingPlayerMolecule />
+            ) : (
+              <GameOrganism socket={socket as Socket} />
+            )}
+          </>
         )}
       </main>
     </>

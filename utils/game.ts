@@ -4,31 +4,31 @@ export const imageOptions: ImageOption[] = [
   {
     name: "rock",
     path: "icons/rock.svg",
-    alt: "rock icons",
+    alt: "rock icon",
     value: Option.rock,
   },
   {
     name: "paper",
     path: "icons/paper.svg",
-    alt: "paper icons",
+    alt: "paper icon",
     value: Option.paper,
   },
   {
     name: "scissors",
     path: "icons/scissors.svg",
-    alt: "scissors icons",
+    alt: "scissors icon",
     value: Option.scissors,
   },
   {
     name: "lizard",
     path: "icons/lizard.svg",
-    alt: "lizard icons",
+    alt: "lizard icon",
     value: Option.lizard,
   },
   {
     name: "spock",
     path: "icons/spock.svg",
-    alt: "spock icons",
+    alt: "spock icon",
     value: Option.spock,
   },
 ]
