@@ -5,6 +5,7 @@ import { useCreateSocket } from "@/hooks"
 import { Namespace } from "@/types/namespace"
 import Head from "next/head"
 import { Socket } from "socket.io"
+import { LoadingAtom } from "../atoms"
 
 interface GameAdvancedTemplateProps {}
 
@@ -23,7 +24,7 @@ const GameAdvancedTemplate: React.FC<GameAdvancedTemplateProps> = () => {
 
       <main>
         {!connected ? (
-          <span>Loading</span>
+          <LoadingAtom />
         ) : (
           <>
             {socket && nbUser < 2 ? (
