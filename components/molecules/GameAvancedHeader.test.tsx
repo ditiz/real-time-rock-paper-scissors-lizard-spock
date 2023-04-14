@@ -1,13 +1,13 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import HeaderMolecule from "./Header"
+import GameAdvancedHeaderMolecule from "./GameAvancedHeader"
 
-it("renders HeaderMolecule unchanged", () => {
-  const { container } = render(<HeaderMolecule />)
+it("renders GameAdvancedHeaderMolecule unchanged", () => {
+  const { container } = render(<GameAdvancedHeaderMolecule />)
   expect(container).toMatchSnapshot()
 })
 
 it("should contain title", () => {
-  render(<HeaderMolecule />)
+  render(<GameAdvancedHeaderMolecule />)
   expect(screen.getByText(/Rock Paper Scissors Lizard Spock/))
 })

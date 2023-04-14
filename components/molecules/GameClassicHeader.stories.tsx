@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { GameClassicHeaderMolecule } from "."
 
 export default {
-  title: "Molecules/GameClassicHeader",
+  title: "Molecules/Header/GameClassic",
   component: GameClassicHeaderMolecule,
 } as ComponentMeta<typeof GameClassicHeaderMolecule>
 

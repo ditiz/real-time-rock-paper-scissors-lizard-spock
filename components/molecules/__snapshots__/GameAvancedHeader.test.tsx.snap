@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders GameAdvancedHeaderMolecule unchanged 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <h1>
+      Rock Paper Scissors Lizard Spock
+    </h1>
+  </header>
+</div>
+`;

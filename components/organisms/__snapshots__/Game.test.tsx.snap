@@ -12,7 +12,7 @@ exports[`renders GameOption unchanged 1`] = `
   >
     <section>
       <img
-        alt="rock icons"
+        alt="rock icon"
         data-nimg="1"
         decoding="async"
         height="50"
@@ -24,7 +24,7 @@ exports[`renders GameOption unchanged 1`] = `
     </section>
     <section>
       <img
-        alt="paper icons"
+        alt="paper icon"
         data-nimg="1"
         decoding="async"
         height="50"
@@ -36,7 +36,7 @@ exports[`renders GameOption unchanged 1`] = `
     </section>
     <section>
       <img
-        alt="scissors icons"
+        alt="scissors icon"
         data-nimg="1"
         decoding="async"
         height="50"
@@ -48,7 +48,7 @@ exports[`renders GameOption unchanged 1`] = `
     </section>
     <section>
       <img
-        alt="lizard icons"
+        alt="lizard icon"
         data-nimg="1"
         decoding="async"
         height="50"
@@ -60,7 +60,7 @@ exports[`renders GameOption unchanged 1`] = `
     </section>
     <section>
       <img
-        alt="spock icons"
+        alt="spock icon"
         data-nimg="1"
         decoding="async"
         height="50"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders NavbarOrganism unchanged 1`] = `
+exports[`renders GameClassicTemplate unchanged 1`] = `
 <div>
   <nav
     class="navbar"
@@ -40,5 +40,12 @@ exports[`renders NavbarOrganism unchanged 1`] = `
       </a>
     </div>
   </nav>
+  <header
+    class="header"
+  >
+    <h1>
+      Rock Paper Scissors
+    </h1>
+  </header>
 </div>
 `;

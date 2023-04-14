@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders HeaderMolecule unchanged 1`] = `
+exports[`renders GameClassicHeaderMolecule unchanged 1`] = `
 <div>
   <header
     class="header"
   >
     <h1>
-      Rock Paper Scissors Lizard Spock
+      Rock Paper Scissors
     </h1>
   </header>
 </div>

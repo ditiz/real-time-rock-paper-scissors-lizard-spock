@@ -1,4 +1,7 @@
-import { HeaderMolecule, WaitingPlayerMolecule } from "@/components/molecules"
+import {
+  GameAdvancedHeaderMolecule,
+  WaitingPlayerMolecule,
+} from "@/components/molecules"
 import { NavbarOrganism } from "@/components/organisms"
 import GameOrganism from "@/components/organisms/Game"
 import { useCreateSocket } from "@/hooks"
@@ -20,7 +23,7 @@ const GameAdvancedTemplate: React.FC<GameAdvancedTemplateProps> = () => {
         <title>Rock Paper Scissor Lizard Spock</title>
       </Head>
 
-      <HeaderMolecule />
+      <GameAdvancedHeaderMolecule />
 
       <main>
         {!connected ? (
