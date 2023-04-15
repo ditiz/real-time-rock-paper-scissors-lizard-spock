@@ -1,8 +1,8 @@
-import { Namespace } from "@/types/namespace"
+import { socketGameAdvanced, socketGameClassic } from "@/utils/socket"
 import { Server as NetServer } from "http"
 import { Socket } from "net"
 import { NextApiRequest, NextApiResponse } from "next"
-import { Server as ServerIO, Socket as SocketIo } from "socket.io"
+import { Server as ServerIO } from "socket.io"
 
 export type NextApiResponseServerIO = NextApiResponse & {
   socket: Socket & {
@@ -34,22 +34,8 @@ export default async function handler(
       },
     })
 
-    io.of(Namespace.advanced).on("connection", (socket: SocketIo) => {
-      io.of(Namespace.advanced).emit("new-user", {
-        latestConnection: socket.id,
-        connectionCount: (io.engine as unknown as Record<string, unknown>)
-          .clientsCount,
-      })
-
-      socket.on("user-action", (args) => {
-        console.info("user-action", args.choice)
-        io.of(Namespace.advanced).emit("rcv-action", args.choice, socket.id)
-      })
-
-      socket.on("disconnect", () => {
-        console.info("a user disconnected")
-      })
-    })
+    socketGameClassic(io)
+    socketGameAdvanced(io)
 
     // append SocketIO server to Next.js socket server response
     res.socket.server.io = io
