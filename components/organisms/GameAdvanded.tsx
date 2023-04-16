@@ -10,7 +10,7 @@ interface GameOrganismProps {
   socket: Socket<DefaultEventsMap, DefaultEventsMap>
 }
 
-function GameOrganism({ socket }: GameOrganismProps) {
+function GameAdvandedOrganism({ socket }: GameOrganismProps) {
   const [choice, setChoice] = useState<Option>()
   const [opponentChoice, setOppentChoice] = useState<Option>()
   const [gameResult, setGameResult] = useState<GameResult>()
@@ -59,4 +59,4 @@ function GameOrganism({ socket }: GameOrganismProps) {
   )
 }
 
-export default GameOrganism
+export default GameAdvandedOrganism

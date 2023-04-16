@@ -3,7 +3,7 @@ import {
   WaitingPlayerMolecule,
 } from "@/components/molecules"
 import { NavbarOrganism } from "@/components/organisms"
-import GameOrganism from "@/components/organisms/Game"
+import GameAdvandedOrganism from "@/components/organisms/GameAdvanded"
 import { useCreateSocket } from "@/hooks"
 import { Namespace } from "@/types/namespace"
 import Head from "next/head"
@@ -33,7 +33,7 @@ const GameAdvancedTemplate: React.FC<GameAdvancedTemplateProps> = () => {
             {socket && nbUser < 2 ? (
               <WaitingPlayerMolecule />
             ) : (
-              <GameOrganism socket={socket as Socket} />
+              <GameAdvandedOrganism socket={socket as Socket} />
             )}
           </>
         )}

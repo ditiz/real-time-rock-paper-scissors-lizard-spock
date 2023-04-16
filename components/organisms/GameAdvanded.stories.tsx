@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { Socket } from "socket.io"
-import { GameOrganism } from "."
+import { GameAdvandedOrganism } from "."
 
 export default {
   title: "Organisms/Game",
-  component: GameOrganism,
+  component: GameAdvandedOrganism,
   argTypes: {
     socket: {
       table: {
@@ -12,15 +12,15 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof GameOrganism>
+} as ComponentMeta<typeof GameAdvandedOrganism>
 
 const mockSocket = {
   on: () => {},
   emit: () => {},
 }
 
-const Template: ComponentStory<typeof GameOrganism> = (args) => (
-  <GameOrganism {...args} socket={mockSocket as unknown as Socket} />
+const Template: ComponentStory<typeof GameAdvandedOrganism> = (args) => (
+  <GameAdvandedOrganism {...args} socket={mockSocket as unknown as Socket} />
 )
 
 export const Default = Template.bind({})

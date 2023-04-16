@@ -2,7 +2,7 @@ import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { act } from "react-dom/test-utils"
 import { Socket } from "socket.io"
-import GameOrganism from "./Game"
+import GameAdvandedOrganism from "./GameAdvanded"
 
 it("renders GameOption unchanged", () => {
   const mockSocket = {
@@ -11,7 +11,7 @@ it("renders GameOption unchanged", () => {
   }
 
   const { container } = render(
-    <GameOrganism socket={mockSocket as unknown as Socket} />
+    <GameAdvandedOrganism socket={mockSocket as unknown as Socket} />
   )
 
   expect(container).toMatchSnapshot()
@@ -23,7 +23,7 @@ test("should listening for event 'rcv-action'", () => {
     emit: jest.fn(),
   }
 
-  render(<GameOrganism socket={mockSocket as unknown as Socket} />)
+  render(<GameAdvandedOrganism socket={mockSocket as unknown as Socket} />)
   expect(mockSocket.on).toBeCalledWith("rcv-action", expect.anything())
 })
 
@@ -33,7 +33,7 @@ test("should emit event 'user-action'", () => {
     emit: jest.fn(),
   }
 
-  render(<GameOrganism socket={mockSocket as unknown as Socket} />)
+  render(<GameAdvandedOrganism socket={mockSocket as unknown as Socket} />)
 
   act(() => {
     screen.getAllByRole("img")[0].click()
