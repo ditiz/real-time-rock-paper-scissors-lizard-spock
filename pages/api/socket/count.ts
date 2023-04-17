@@ -1,4 +1,4 @@
-import { getIo, socketGameAdvanced, socketGameClassic } from "@/utils/socket"
+import { getIo } from "@/utils/socket"
 import { Server as NetServer } from "http"
 import { Socket } from "net"
 import { NextApiRequest, NextApiResponse } from "next"
@@ -23,19 +23,14 @@ export default async function handler(
   res: NextApiResponseServerIO
 ) {
   let io = res.socket.server.io
-
   if (!io) {
-    console.info("New Socket.io server...")
     // adapt Next's net Server to http Server
     const httpServer: NetServer = res.socket.server
     io = getIo(httpServer)
   }
 
-  socketGameClassic(io)
-  socketGameAdvanced(io)
-
+  let nb = (io.engine as unknown as Record<string, unknown>).clientsCount
   // append SocketIO server to Next.js socket server response
   res.socket.server.io = io
-
-  res.end()
+  res.status(200).json(nb)
 }

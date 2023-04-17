@@ -1,6 +1,12 @@
 import { expect, test } from "@playwright/test"
 
 const projectUrl = "http://localhost:3000/"
+const closeSocketUrl = "http://localhost:3000/api/socket/close"
+
+test.afterEach(async ({ page }) => {
+  // Close socket
+  await page.goto(closeSocketUrl)
+})
 
 test("title", async ({ page }) => {
   await page.goto(projectUrl)
@@ -37,7 +43,7 @@ test("game icons when 2 player are connected", async ({ browser }) => {
   expect(page.getByRole("img", { name: "spock icon" })).toBeTruthy()
 })
 
-test.describe(() => {
+test.describe("playing advanced game", () => {
   test("rock should won against scissors", async ({ browser }) => {
     const page = await browser.newPage()
     const page1 = await browser.newPage()
