@@ -3,7 +3,7 @@ import { Namespace } from "@/types/namespace"
 import Head from "next/head"
 import { LoadingAtom } from "../atoms"
 import { GameClassicHeaderMolecule, WaitingPlayerMolecule } from "../molecules"
-import { NavbarOrganism } from "../organisms"
+import { GameClassicOrganism, NavbarOrganism } from "../organisms"
 
 interface GameClassicTemplateProps {}
 
@@ -24,7 +24,14 @@ const GameClassicTemplate: React.FC<GameClassicTemplateProps> = () => {
         {!connected ? (
           <LoadingAtom />
         ) : (
-          <>{socket && nbUser < 2 ? <WaitingPlayerMolecule /> : "Game"}</>
+          <>
+            {socket &&
+              (nbUser < 2 ? (
+                <WaitingPlayerMolecule />
+              ) : (
+                <GameClassicOrganism socket={socket} />
+              ))}
+          </>
         )}
       </main>
     </>

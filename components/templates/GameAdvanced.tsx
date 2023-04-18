@@ -7,7 +7,7 @@ import GameAdvandedOrganism from "@/components/organisms/GameAdvanded"
 import { useCreateSocket } from "@/hooks"
 import { Namespace } from "@/types/namespace"
 import Head from "next/head"
-import { Socket } from "socket.io"
+import { Socket } from "socket.io-client"
 import { LoadingAtom } from "../atoms"
 
 interface GameAdvancedTemplateProps {}

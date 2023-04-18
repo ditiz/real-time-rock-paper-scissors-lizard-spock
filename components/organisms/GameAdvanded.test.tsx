@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { act } from "react-dom/test-utils"
-import { Socket } from "socket.io"
+import { Socket } from "socket.io-client"
 import GameAdvandedOrganism from "./GameAdvanded"
 
 it("renders GameOption unchanged", () => {

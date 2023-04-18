@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { Socket } from "socket.io"
+import { Socket } from "socket.io-client"
 import { GameAdvandedOrganism } from "."
 
 export default {

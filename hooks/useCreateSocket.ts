@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import { Socket } from "socket.io"
-import { Manager } from "socket.io-client"
+import { Manager, Socket } from "socket.io-client"
 
 const useCreateSocket = (namespace: string) => {
   const [connected, setConnected] = useState<boolean>(false)
