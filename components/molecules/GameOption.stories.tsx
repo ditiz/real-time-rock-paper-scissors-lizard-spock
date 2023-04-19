@@ -1,5 +1,5 @@
 import { ImageOption } from "@/types/game"
-import { imageOptions } from "@/utils/game"
+import { GameAdvanceOptions } from "@/utils/game"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { GameOptionMolecule } from "."
 
@@ -10,14 +10,14 @@ export default {
     option: {
       description: "The current option display in the component",
       type: "symbol",
-      options: imageOptions.reduce((acc, option) => {
+      options: GameAdvanceOptions.reduce((acc, option) => {
         acc[option.value] = option
         return acc
       }, {} as Record<string, ImageOption>),
       control: { type: "select" },
     },
     choice: {
-      options: imageOptions.map((option) => option.value),
+      options: GameAdvanceOptions.map((option) => option.value),
       control: { type: "select" },
     },
   },
@@ -29,12 +29,12 @@ const Template: ComponentStory<typeof GameOptionMolecule> = (args) => (
 
 export const Selected = Template.bind({})
 Selected.args = {
-  choice: imageOptions[0].value,
-  option: imageOptions[0],
+  choice: GameAdvanceOptions[0].value,
+  option: GameAdvanceOptions[0],
 }
 
 export const Unselected = Template.bind({})
 Unselected.args = {
-  choice: imageOptions[1].value,
-  option: imageOptions[3],
+  choice: GameAdvanceOptions[1].value,
+  option: GameAdvanceOptions[3],
 }
