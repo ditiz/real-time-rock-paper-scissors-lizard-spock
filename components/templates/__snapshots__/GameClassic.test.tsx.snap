@@ -48,7 +48,51 @@ exports[`renders GameClassicTemplate unchanged 1`] = `
     </h1>
   </header>
   <main>
-    Game
+    <h2
+      class="game__title"
+    >
+      Choose your move
+    </h2>
+    <article
+      class="game"
+    >
+      <section>
+        <img
+          alt="rock icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/rock.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+      <section>
+        <img
+          alt="paper icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/paper.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+      <section>
+        <img
+          alt="scissors icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/scissors.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+    </article>
   </main>
 </div>
 `;
