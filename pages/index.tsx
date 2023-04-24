@@ -1,3 +1,5 @@
+import { GameSelectionTemplate } from "@/components/templates"
+
 export default function Home() {
-  return <>Home</>
+  return <GameSelectionTemplate />
 }
