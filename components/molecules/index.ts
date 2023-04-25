@@ -4,6 +4,7 @@ import GameOptionMolecule from "./GameOption"
 import GameResultMolecule from "./GameResult"
 import RulesMainMolecule from "./RulesMain"
 import WaitingPlayerMolecule from "./WaitingPlayer"
+import GameSelectionOptionMolecule from "./GameSelectionOption"
 // imports
 
 export {
@@ -13,5 +14,6 @@ export {
   GameAdvancedHeaderMolecule,
   RulesMainMolecule,
   GameClassicHeaderMolecule,
-  // exports
+  	GameSelectionOptionMolecule,
+// exports
 }
