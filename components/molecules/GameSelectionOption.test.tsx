@@ -1,8 +1,10 @@
 import "@testing-library/jest-dom"
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import GameSelectionOptionMolecule from "./GameSelectionOption"
 
 it("renders GameSelectionOptionMolecule unchanged", () => {
-  const { container } = render(<GameSelectionOptionMolecule />)
+  const { container } = render(
+    <GameSelectionOptionMolecule name={"test"} link="/test" />
+  )
   expect(container).toMatchSnapshot()
 })
