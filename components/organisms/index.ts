@@ -2,6 +2,7 @@ import GameAdvandedOrganism from "./GameAdvanded"
 import NavbarOrganism from "./Navbar"
 import RulesDetailsOrganism from "./RulesDetails"
 import GameClassicOrganism from "./GameClassic"
+import GameSelectionOrganism from "./GameSelection"
 // imports
 
 export {
@@ -9,5 +10,6 @@ export {
   RulesDetailsOrganism,
   NavbarOrganism,
   	GameClassicOrganism,
+	GameSelectionOrganism,
 // exports
 }
