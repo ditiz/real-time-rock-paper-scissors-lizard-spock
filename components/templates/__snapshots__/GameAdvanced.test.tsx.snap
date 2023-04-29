@@ -38,6 +38,11 @@ exports[`renders GameAdvancedTemplate unchanged 1`] = `
       >
         Classic
       </a>
+      <a
+        href="/Advanced"
+      >
+        Advanced
+      </a>
     </div>
   </nav>
   <header

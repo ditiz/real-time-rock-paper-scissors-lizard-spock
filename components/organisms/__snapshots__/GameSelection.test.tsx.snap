@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders GameSelectionOrganism unchanged 1`] = `
+<div>
+  <section
+    class="game-selection"
+  >
+    <article
+      class="card"
+    >
+      <a
+        href="/Classic"
+      >
+        <div>
+          <h2>
+            Game Classic
+          </h2>
+          <p>
+            Classic game of rock, paper, scissors
+          </p>
+        </div>
+      </a>
+    </article>
+    <article
+      class="card"
+    >
+      <a
+        href="/Advanced"
+      >
+        <div>
+          <h2>
+            Game Advanced
+          </h2>
+          <p>
+            Game of rock, paper, scissors, lizard, spock
+          </p>
+        </div>
+      </a>
+    </article>
+  </section>
+</div>
+`;

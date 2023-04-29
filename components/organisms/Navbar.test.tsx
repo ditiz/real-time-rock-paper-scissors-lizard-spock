@@ -14,5 +14,5 @@ it("should have logo", () => {
 
 it("should have links", () => {
   render(<NavbarOrganism />)
-  expect(screen.getAllByRole("link")).toHaveLength(3)
+  expect(screen.getAllByRole("link")).toHaveLength(4)
 })

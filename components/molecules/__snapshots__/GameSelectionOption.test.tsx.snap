@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders GameSelectionOptionMolecule unchanged 1`] = `
+<div>
+  <article
+    class="card"
+  >
+    <a
+      href="/test"
+    >
+      <div>
+        <h2>
+          test
+        </h2>
+      </div>
+    </a>
+  </article>
+</div>
+`;
