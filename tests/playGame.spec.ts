@@ -1,55 +1,58 @@
+import { routes } from "@/utils/navigation"
 import { expect, test } from "@playwright/test"
 
-const projectUrl = "http://localhost:3000/"
+const projectUrl = "http://localhost:3000"
 const closeSocketUrl = "http://localhost:3000/api/socket/close"
 
-test.afterEach(async ({ page }) => {
-  // Close socket
-  await page.goto(closeSocketUrl)
-})
+test.describe("advanced game", () => {
+  const advancedGameUrl = projectUrl + routes.advanced
 
-test("title", async ({ page }) => {
-  await page.goto(projectUrl)
+  test.afterEach(async ({ page }) => {
+    // Close socket
+    await page.goto(closeSocketUrl)
+  })
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Rock Paper Scissor Lizard Spock/)
-})
+  test("header", async ({ page }) => {
+    await page.goto(advancedGameUrl)
 
-test("header", async ({ page }) => {
-  await page.goto(projectUrl)
+    const title = await page.innerText("h1")
 
-  const title = await page.innerText("h1")
+    expect(title).toBe("Rock Paper Scissors Lizard Spock")
+  })
 
-  expect(title).toBe("Rock Paper Scissors Lizard Spock")
-})
+  test("title", async ({ page }) => {
+    await page.goto(advancedGameUrl)
 
-test("waiting message", async ({ page }) => {
-  await page.goto(projectUrl)
-  const main = page.locator("main")
-  await expect(main).toContainText("Waiting for another player")
-})
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/Rock Paper Scissor Lizard Spock/)
+  })
 
-test("game icons when 2 player are connected", async ({ browser }) => {
-  const page = await browser.newPage()
-  const page1 = await browser.newPage()
+  test("waiting message", async ({ page }) => {
+    await page.goto(advancedGameUrl)
+    const main = page.locator("main")
+    await expect(main).toContainText("Waiting for another player")
+  })
 
-  await page.goto(projectUrl)
-  await page1.goto(projectUrl)
+  test("game icons when 2 player are connected", async ({ browser }) => {
+    const page = await browser.newPage()
+    const page1 = await browser.newPage()
 
-  expect(page.getByRole("img", { name: "rock icon" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "paper icon" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "scissors icon" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "lizard icon" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "spock icon" })).toBeTruthy()
-})
+    await page.goto(advancedGameUrl)
+    await page1.goto(advancedGameUrl)
 
-test.describe("playing advanced game", () => {
+    expect(page.getByRole("img", { name: "rock icon" })).toBeTruthy()
+    expect(page.getByRole("img", { name: "paper icon" })).toBeTruthy()
+    expect(page.getByRole("img", { name: "scissors icon" })).toBeTruthy()
+    expect(page.getByRole("img", { name: "lizard icon" })).toBeTruthy()
+    expect(page.getByRole("img", { name: "spock icon" })).toBeTruthy()
+  })
+
   test("rock should won against scissors", async ({ browser }) => {
     const page = await browser.newPage()
     const page1 = await browser.newPage()
 
-    await page.goto(projectUrl)
-    await page1.goto(projectUrl)
+    await page.goto(advancedGameUrl)
+    await page1.goto(advancedGameUrl)
 
     await page.getByRole("img", { name: "rock icon" }).click()
     await page1.getByRole("img", { name: "scissors icon" }).click()
@@ -65,8 +68,8 @@ test.describe("playing advanced game", () => {
     const page = await browser.newPage()
     const page1 = await browser.newPage()
 
-    await page.goto(projectUrl)
-    await page1.goto(projectUrl)
+    await page.goto(advancedGameUrl)
+    await page1.goto(advancedGameUrl)
 
     await page.getByRole("img", { name: "paper icon" }).click()
     await page1.getByRole("img", { name: "scissors icon" }).click()
@@ -82,8 +85,8 @@ test.describe("playing advanced game", () => {
     const page = await browser.newPage()
     const page1 = await browser.newPage()
 
-    await page.goto(projectUrl)
-    await page1.goto(projectUrl)
+    await page.goto(advancedGameUrl)
+    await page1.goto(advancedGameUrl)
 
     await page.getByRole("img", { name: "rock icon" }).click()
     await page1.getByRole("img", { name: "rock icon" }).click()
