@@ -2,14 +2,60 @@ import { routes } from "@/utils/navigation"
 import { expect, test } from "@playwright/test"
 
 const projectUrl = "http://localhost:3000"
+const classicGameUrl = projectUrl + routes.classic
+const advancedGameUrl = projectUrl + routes.advanced
 const closeSocketUrl = "http://localhost:3000/api/socket/close"
 
-test.describe("advanced game", () => {
-  const advancedGameUrl = projectUrl + routes.advanced
+test.describe("game selection", () => {
+  test("title", async ({ page }) => {
+    await page.goto(projectUrl)
 
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/Game Selection/)
+  })
+
+  test("header", async ({ page }) => {
+    await page.goto(projectUrl)
+
+    const title = await page.innerText("h1")
+
+    expect(title).toBe("Game selection")
+  })
+
+  test("should redirect to game classic", async ({ page }) => {
+    await page.goto(projectUrl)
+
+    await page.getByText(/game classic/i).click()
+
+    await page.waitForURL(classicGameUrl)
+
+    const title = await page.innerText("h1")
+    expect(title).toBe("Rock Paper Scissors")
+  })
+
+  test("should redirect to game advanced", async ({ page }) => {
+    await page.goto(projectUrl)
+
+    await page.getByText(/game advanced/i).click()
+
+    await page.waitForURL(advancedGameUrl)
+
+    const title = await page.innerText("h1")
+    expect(title).toBe("Rock Paper Scissors Lizard Spock")
+  })
+})
+
+test.describe("advanced game", () => {
   test.afterEach(async ({ page }) => {
     // Close socket
     await page.goto(closeSocketUrl)
+  })
+
+  test("title", async ({ page }) => {
+    await page.goto(advancedGameUrl)
+
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/Rock Paper Scissor Lizard Spock/)
   })
 
   test("header", async ({ page }) => {
@@ -18,13 +64,6 @@ test.describe("advanced game", () => {
     const title = await page.innerText("h1")
 
     expect(title).toBe("Rock Paper Scissors Lizard Spock")
-  })
-
-  test("title", async ({ page }) => {
-    await page.goto(advancedGameUrl)
-
-    // Expect a title "to contain" a substring.
-    await expect(page).toHaveTitle(/Rock Paper Scissor Lizard Spock/)
   })
 
   test("waiting message", async ({ page }) => {
