@@ -1,15 +1,17 @@
+import GameAdvancedHeaderMolecule from "./GameAvancedHeader"
+import GameClassicHeaderMolecule from "./GameClassicHeader"
 import GameOptionMolecule from "./GameOption"
 import GameResultMolecule from "./GameResult"
-import HeaderMolecule from "./Header"
-import WaitingPlayerMolecule from "./WaitingPlayer"
 import RulesMainMolecule from "./RulesMain"
+import WaitingPlayerMolecule from "./WaitingPlayer"
 // imports
 
 export {
   GameResultMolecule,
   GameOptionMolecule,
   WaitingPlayerMolecule,
-  HeaderMolecule,
-  	RulesMainMolecule,
-// exports
+  GameAdvancedHeaderMolecule,
+  RulesMainMolecule,
+  GameClassicHeaderMolecule,
+  // exports
 }

@@ -1,5 +1,5 @@
 import { Option } from "@/types/game"
-import { imageOptions } from "@/utils/game"
+import { GameAdvanceOptions } from "@/utils/game"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import GameOptionMolecule from "./GameOption"
@@ -8,7 +8,7 @@ it("renders GameOption unchanged", () => {
   const { container } = render(
     <GameOptionMolecule
       choice={Option.rock}
-      option={imageOptions[0]}
+      option={GameAdvanceOptions[0]}
       setChoice={jest.fn}
     />
   )
@@ -19,7 +19,7 @@ test("contain img", () => {
   render(
     <GameOptionMolecule
       choice={Option.rock}
-      option={imageOptions[0]}
+      option={GameAdvanceOptions[0]}
       setChoice={jest.fn}
     />
   )
@@ -27,8 +27,8 @@ test("contain img", () => {
   const img = screen.getByRole("img")
 
   expect(img).toBeInTheDocument()
-  expect(img.getAttribute("src")).toBe(imageOptions[0].path)
-  expect(img.getAttribute("alt")).toBe(imageOptions[0].alt)
+  expect(img.getAttribute("src")).toBe(GameAdvanceOptions[0].path)
+  expect(img.getAttribute("alt")).toBe(GameAdvanceOptions[0].alt)
 })
 
 test("click action", () => {
@@ -37,12 +37,12 @@ test("click action", () => {
   render(
     <GameOptionMolecule
       choice={Option.rock}
-      option={imageOptions[0]}
+      option={GameAdvanceOptions[0]}
       setChoice={mockSetChoice}
     />
   )
 
   screen.getByRole("img").click()
 
-  expect(mockSetChoice).toBeCalledWith(imageOptions[0].value)
+  expect(mockSetChoice).toBeCalledWith(GameAdvanceOptions[0].value)
 })

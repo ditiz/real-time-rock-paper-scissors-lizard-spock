@@ -4,6 +4,7 @@ import WaitingMessageAtom from "./game/waitingMessage"
 import HeaderAtom from "./Header"
 import TextAtom from "./Text"
 import NavbarAtom from "./Navbar"
+import LoadingAtom from "./Loading"
 // imports
 
 export {
@@ -13,5 +14,6 @@ export {
   HeaderAtom,
   TextAtom,
   	NavbarAtom,
+	LoadingAtom,
 // exports
 }

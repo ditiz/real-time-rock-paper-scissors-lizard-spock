@@ -1,7 +1,7 @@
 import { GameResult, Option } from "@/types/game"
-import { imageOptions, playGame } from "@/utils/game"
+import { GameAdvanceOptions, playGame } from "@/utils/game"
 import { useEffect, useState } from "react"
-import { Socket } from "socket.io"
+import { Socket } from "socket.io-client"
 import { DefaultEventsMap } from "socket.io/dist/typed-events"
 import { GameTitleAtom } from "../atoms"
 import { GameOptionMolecule, GameResultMolecule } from "../molecules"
@@ -10,7 +10,7 @@ interface GameOrganismProps {
   socket: Socket<DefaultEventsMap, DefaultEventsMap>
 }
 
-function GameOrganism({ socket }: GameOrganismProps) {
+function GameAdvandedOrganism({ socket }: GameOrganismProps) {
   const [choice, setChoice] = useState<Option>()
   const [opponentChoice, setOppentChoice] = useState<Option>()
   const [gameResult, setGameResult] = useState<GameResult>()
@@ -45,7 +45,7 @@ function GameOrganism({ socket }: GameOrganismProps) {
     <>
       <GameTitleAtom>Choose your move</GameTitleAtom>
       <article className="game">
-        {imageOptions.map((el) => (
+        {GameAdvanceOptions.map((el) => (
           <GameOptionMolecule
             key={el.name}
             option={el}
@@ -59,4 +59,4 @@ function GameOrganism({ socket }: GameOrganismProps) {
   )
 }
 
-export default GameOrganism
+export default GameAdvandedOrganism

@@ -1,6 +1,12 @@
 import { expect, test } from "@playwright/test"
 
 const projectUrl = "http://localhost:3000/"
+const closeSocketUrl = "http://localhost:3000/api/socket/close"
+
+test.afterEach(async ({ page }) => {
+  // Close socket
+  await page.goto(closeSocketUrl)
+})
 
 test("title", async ({ page }) => {
   await page.goto(projectUrl)
@@ -30,14 +36,14 @@ test("game icons when 2 player are connected", async ({ browser }) => {
   await page.goto(projectUrl)
   await page1.goto(projectUrl)
 
-  expect(page.getByRole("img", { name: "rock icons" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "paper icons" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "scissors icons" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "lizard icons" })).toBeTruthy()
-  expect(page.getByRole("img", { name: "spock icons" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "rock icon" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "paper icon" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "scissors icon" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "lizard icon" })).toBeTruthy()
+  expect(page.getByRole("img", { name: "spock icon" })).toBeTruthy()
 })
 
-test.describe(() => {
+test.describe("playing advanced game", () => {
   test("rock should won against scissors", async ({ browser }) => {
     const page = await browser.newPage()
     const page1 = await browser.newPage()
@@ -45,8 +51,8 @@ test.describe(() => {
     await page.goto(projectUrl)
     await page1.goto(projectUrl)
 
-    await page.getByRole("img", { name: "rock icons" }).click()
-    await page1.getByRole("img", { name: "scissors icons" }).click()
+    await page.getByRole("img", { name: "rock icon" }).click()
+    await page1.getByRole("img", { name: "scissors icon" }).click()
 
     const main = page.locator("main")
     const main1 = page1.locator("main")
@@ -62,8 +68,8 @@ test.describe(() => {
     await page.goto(projectUrl)
     await page1.goto(projectUrl)
 
-    await page.getByRole("img", { name: "paper icons" }).click()
-    await page1.getByRole("img", { name: "scissors icons" }).click()
+    await page.getByRole("img", { name: "paper icon" }).click()
+    await page1.getByRole("img", { name: "scissors icon" }).click()
 
     const main = page.locator("main")
     const main1 = page1.locator("main")
@@ -79,8 +85,8 @@ test.describe(() => {
     await page.goto(projectUrl)
     await page1.goto(projectUrl)
 
-    await page.getByRole("img", { name: "rock icons" }).click()
-    await page1.getByRole("img", { name: "rock icons" }).click()
+    await page.getByRole("img", { name: "rock icon" }).click()
+    await page1.getByRole("img", { name: "rock icon" }).click()
 
     const main = page.locator("main")
     const main1 = page1.locator("main")

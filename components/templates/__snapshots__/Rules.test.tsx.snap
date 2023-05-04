@@ -33,6 +33,11 @@ exports[`renders RulesTemplate unchanged 1`] = `
       >
         Rules
       </a>
+      <a
+        href="/Classic"
+      >
+        Classic
+      </a>
     </div>
   </nav>
   <article

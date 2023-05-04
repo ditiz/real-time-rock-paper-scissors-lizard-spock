@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders GameAdvancedTemplate unchanged 1`] = `
+<div>
+  <nav
+    class="navbar"
+  >
+    <div
+      class="navbar__logo"
+    >
+      <img
+        alt="logo"
+        data-nimg="1"
+        decoding="async"
+        height="25"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+        style="color: transparent;"
+        width="25"
+      />
+    </div>
+    <div
+      class="navbar__links"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/Rules"
+      >
+        Rules
+      </a>
+      <a
+        href="/Classic"
+      >
+        Classic
+      </a>
+    </div>
+  </nav>
+  <header
+    class="header"
+  >
+    <h1>
+      Rock Paper Scissors Lizard Spock
+    </h1>
+  </header>
+  <main>
+    <h2
+      class="game__title"
+    >
+      Choose your move
+    </h2>
+    <article
+      class="game"
+    >
+      <section>
+        <img
+          alt="rock icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/rock.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+      <section>
+        <img
+          alt="paper icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/paper.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+      <section>
+        <img
+          alt="scissors icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/scissors.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+      <section>
+        <img
+          alt="lizard icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/lizard.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+      <section>
+        <img
+          alt="spock icon"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="icons/spock.svg"
+          style="color: transparent;"
+          width="50"
+        />
+      </section>
+    </article>
+  </main>
+</div>
+`;

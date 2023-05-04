@@ -4,7 +4,7 @@ exports[`renders GameOption unchanged 1`] = `
 <div>
   <section>
     <img
-      alt="rock icons"
+      alt="rock icon"
       data-nimg="1"
       decoding="async"
       height="50"

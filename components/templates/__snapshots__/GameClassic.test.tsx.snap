@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders HomeTemplate unchanged 1`] = `
+exports[`renders GameClassicTemplate unchanged 1`] = `
 <div>
   <nav
     class="navbar"
@@ -33,13 +33,18 @@ exports[`renders HomeTemplate unchanged 1`] = `
       >
         Rules
       </a>
+      <a
+        href="/Classic"
+      >
+        Classic
+      </a>
     </div>
   </nav>
   <header
     class="header"
   >
     <h1>
-      Rock Paper Scissors Lizard Spock
+      Rock Paper Scissors
     </h1>
   </header>
   <main>
@@ -53,7 +58,7 @@ exports[`renders HomeTemplate unchanged 1`] = `
     >
       <section>
         <img
-          alt="rock icons"
+          alt="rock icon"
           data-nimg="1"
           decoding="async"
           height="50"
@@ -65,7 +70,7 @@ exports[`renders HomeTemplate unchanged 1`] = `
       </section>
       <section>
         <img
-          alt="paper icons"
+          alt="paper icon"
           data-nimg="1"
           decoding="async"
           height="50"
@@ -77,36 +82,12 @@ exports[`renders HomeTemplate unchanged 1`] = `
       </section>
       <section>
         <img
-          alt="scissors icons"
+          alt="scissors icon"
           data-nimg="1"
           decoding="async"
           height="50"
           loading="lazy"
           src="icons/scissors.svg"
-          style="color: transparent;"
-          width="50"
-        />
-      </section>
-      <section>
-        <img
-          alt="lizard icons"
-          data-nimg="1"
-          decoding="async"
-          height="50"
-          loading="lazy"
-          src="icons/lizard.svg"
-          style="color: transparent;"
-          width="50"
-        />
-      </section>
-      <section>
-        <img
-          alt="spock icons"
-          data-nimg="1"
-          decoding="async"
-          height="50"
-          loading="lazy"
-          src="icons/spock.svg"
           style="color: transparent;"
           width="50"
         />

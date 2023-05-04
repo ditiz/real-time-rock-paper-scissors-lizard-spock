@@ -1,37 +1,49 @@
 import { GameResult, ImageOption, Option } from "@/types/game"
 
-export const imageOptions: ImageOption[] = [
-  {
-    name: "rock",
-    path: "icons/rock.svg",
-    alt: "rock icons",
-    value: Option.rock,
-  },
-  {
-    name: "paper",
-    path: "icons/paper.svg",
-    alt: "paper icons",
-    value: Option.paper,
-  },
-  {
-    name: "scissors",
-    path: "icons/scissors.svg",
-    alt: "scissors icons",
-    value: Option.scissors,
-  },
-  {
-    name: "lizard",
-    path: "icons/lizard.svg",
-    alt: "lizard icons",
-    value: Option.lizard,
-  },
-  {
-    name: "spock",
-    path: "icons/spock.svg",
-    alt: "spock icons",
-    value: Option.spock,
-  },
+const rock = {
+  name: "rock",
+  path: "icons/rock.svg",
+  alt: "rock icon",
+  value: Option.rock,
+}
+
+const paper = {
+  name: "paper",
+  path: "icons/paper.svg",
+  alt: "paper icon",
+  value: Option.paper,
+}
+
+const scissors = {
+  name: "scissors",
+  path: "icons/scissors.svg",
+  alt: "scissors icon",
+  value: Option.scissors,
+}
+
+const lizard = {
+  name: "lizard",
+  path: "icons/lizard.svg",
+  alt: "lizard icon",
+  value: Option.lizard,
+}
+
+const spock = {
+  name: "spock",
+  path: "icons/spock.svg",
+  alt: "spock icon",
+  value: Option.spock,
+}
+
+export const GameAdvanceOptions: ImageOption[] = [
+  rock,
+  paper,
+  scissors,
+  lizard,
+  spock,
 ]
+
+export const GameClassicOptions: ImageOption[] = [rock, paper, scissors]
 
 // Object that define against what an option win
 const actions = {
