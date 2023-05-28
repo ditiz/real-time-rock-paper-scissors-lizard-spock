@@ -1,5 +1,5 @@
-import { GameAdvancedTemplate } from "@/components/templates"
+import { GameSelectionTemplate } from "@/components/templates"
 
 export default function Home() {
-  return <GameAdvancedTemplate />
+  return <GameSelectionTemplate />
 }

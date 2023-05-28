@@ -1,0 +1,14 @@
+.card {
+  border: 1px solid var(--c-2);
+  border-radius: 5px;
+  transition: 150ms ease-in;
+}
+
+.card:hover {
+  color: black;
+  background: var(--c-2);
+}
+
+.card > a > div {
+  padding: 1rem;
+}

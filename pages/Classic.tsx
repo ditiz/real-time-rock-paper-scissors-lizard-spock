@@ -1,5 +1,5 @@
 import { GameClassicTemplate } from "@/components/templates"
 
-export default function Classic() {
+export default function GameClassic() {
   return <GameClassicTemplate />
 }
